@@ -1,11 +1,20 @@
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
+import HeroSection from "@/components/home/HeroSection";
+import BgGradient from "@/components/common/BgGradient";
 
 export default function Home() {
   return (
-    <div>
+    <div className={"relative w-full"}>
+        <BgGradient/>
+        <div className={"flex flex-col"}>
+            <HeroSection />
+        </div>
 
-        <Button variant={"outline"} size={"lg"}>Shadcn button</Button>
+        {/*DemoSection*/}
+        {/*HowItWorksSection*/}
+        {/*PricingSection*/}
+        {/*CTAsection*/}
     </div>
   );
 }
