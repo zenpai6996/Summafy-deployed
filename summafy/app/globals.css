@@ -194,3 +194,29 @@
 .animate-gradient-x{
   animation: gradient-x 3s ease infinite;
 }
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-50%, -50%) translate(5vw, 5vh) rotate(5deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate(10vw, -3vh) rotate(0deg) scale(0.9);
+  }
+  75% {
+    transform: translate(-50%, -50%) translate(-5vw, 5vh) rotate(-5deg) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,15 +1,15 @@
 export default function BgGradient({
-    children,
-    className
-               }:{
+                                       children,
+                                       className
+                                   }:{
     children?:React.ReactNode;
     className?:string;
 }){
     return(
         <div className={`relative isolate ${className}`}>
             <div
-            aria-hidden={"true"}
-            className={"pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-30"}
+                aria-hidden={"true"}
+                className={"pointer-events-none absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-30"}
             >
                 <div
                     style={{clipPath:'polygon(50% 0%, 98% 35%, 68% 57%, 79% 91% , 50% 70%, 21% 91% , 2% 35% , 39% 35%)',}}

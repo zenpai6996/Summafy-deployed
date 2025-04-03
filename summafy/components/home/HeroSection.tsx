@@ -30,7 +30,7 @@ export default function HeroSection(){
                     From PDFs to {" "}
                     <span className={"relative inline-block px-1 py-2"}>
                     <span className={"relative z-10"}>Clear Insightful</span>
-                    <span className={"absolute inset-0 bg-gradient-to-r from-[#C68EFD]/25 to-[#C68EFD]/50 -rotate-2 rounded-lg transform -skew-y-1"}></span>
+                    <span className={"absolute inset-0 bg-gradient-to-r from-[#C68EFD]/50 to-[#C68EFD]/25 -rotate-2 rounded-lg transform -skew-y-1"}></span>
                     </span>{" "}
                     Summaries
                 </h1>
