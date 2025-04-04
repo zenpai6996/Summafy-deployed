@@ -45,7 +45,7 @@ export default function HeroSection(){
     before:absolute before:inset-0 before:bg-gradient-to-r before:from-slate-900 before:to-[#C68EFD] 
     after:absolute after:inset-0 after:bg-gradient-to-r after:from-[#C68EFD] after:to-slate-900 
     after:opacity-0 hover:after:opacity-100 
-    after:transition-opacity after:duration-500 after:ease-in-out shadow-lg
+    after:transition-opacity after:duration-500 after:ease-in-out shadow-lg  hover:scale-105 hover:transition-all duration-300 ease-in-out
   `}>
                        <Link href={"/upload"} className={"flex gap-2 items-center relative z-10"}>
                            <span> Try Summafy</span>
