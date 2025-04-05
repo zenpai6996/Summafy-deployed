@@ -32,9 +32,18 @@ export default function Header() {
                         <NavLink href={"/upload"}>
                             Upload a PDF
                         </NavLink>
-                        <div>Pro</div>
+                        {/*<div>Pro</div>*/}
                         <SignedIn>
-                            <UserButton/>
+                            <div >
+                                <UserButton
+                                    appearance={{
+                                        elements: {
+                                            userButtonAvatarBox: "w-10 h-10 lg:w-12 lg:h-12",
+                                            userButtonTrigger: "focus:shadow-none"
+                                        }
+                                    }}
+                                />
+                            </div>
                         </SignedIn>
                     </div>
            </SignedIn>
