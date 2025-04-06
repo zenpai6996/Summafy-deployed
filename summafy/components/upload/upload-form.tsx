@@ -3,6 +3,7 @@ import UploadFormInput from "@/components/upload/upload-form-input";
 import {z} from 'zod';
 import {useUploadThing} from "@/utils/uploadthing";
 import {toast} from "sonner";
+import {generatePDFSummary} from "@/actions/upload-actions";
 
 //TODO: Schema validation using zod
 const schema = z.object({
@@ -12,6 +13,7 @@ const schema = z.object({
 });
 
 export default function UploadForm(){
+
 
 
     const {startUpload , routeConfig} = useUploadThing(
@@ -63,7 +65,9 @@ export default function UploadForm(){
                 description:"Hang tight! Summafy is reading through the document ✨"
             },
         )
-        //Parse the PDF using Lang chain
+        //TODO: Parse the PDF using Lang chain
+        const summary = await generatePDFSummary(resp);
+        console.log({summary});
         //summarize the Pdf using AI
         //save the summary to the database
         //redirect to the individual summary page
