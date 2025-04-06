@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/Footer";
 import {ClerkProvider} from "@clerk/nextjs";
+import {Toaster} from "sonner";
 
 const fontSans = Source_Sans_3({
   variable: "--font-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider
+        publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
         appearance={{
 
             variables: {
@@ -49,6 +51,7 @@ export default function RootLayout({
             </main>
             <Footer/>
         </div>
+        <Toaster richColors closeButton={false} position={"top-right"}/>
         </body>
         </html>
     </ClerkProvider>

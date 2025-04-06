@@ -31,7 +31,7 @@ const plans =[
         price:50,
         description:'Best for Professionals',
         items:[
-            '50 PDF summaries per month',
+            '30 PDF summaries per month',
             'Priority Processing',
             'Markdown Export'
         ],
