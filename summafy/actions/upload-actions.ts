@@ -1,6 +1,7 @@
 'use server';
 import {fetchAndExtractPdfText} from "@/lib/langchain";
-import {generateSummaryFromOpenAi} from "@/lib/openAi";
+import {generateSummaryFromGemini} from "@/lib/geminiAi";
+import {generateSummaryFromCohere} from "@/lib/aiService";
 
 export async function generatePDFSummary(uploadResponse:[
     {
@@ -34,10 +35,20 @@ export async function generatePDFSummary(uploadResponse:[
         console.log({pdfText});
         let summary;
         try{
-             summary = await generateSummaryFromOpenAi(pdfText);
+             summary = await generateSummaryFromCohere(pdfText);
+            console.log(summary);
+
         }catch(error){
             console.log(error);
             //call gemini api if openai fails
+            if(error instanceof Error && error.message === 'RATE_LIMIT_EXCEEDED'){
+                try{
+                    summary= await generateSummaryFromGemini(pdfText);
+                }catch(error){
+                    console.error('Gemini API failed after primary AI provider');
+
+                }
+            }
         }
         if(!summary){
             return{
@@ -45,6 +56,13 @@ export async function generatePDFSummary(uploadResponse:[
                 message:'Failed to generate summary',
                 data:null,
             };
+        }
+        return{
+            success:true,
+            message:'Summary Generated successfully',
+            data:{
+                summary,
+            },
         }
     }catch(err){
         return{
