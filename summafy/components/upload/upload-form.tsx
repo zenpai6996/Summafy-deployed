@@ -5,6 +5,7 @@ import {useUploadThing} from "@/utils/uploadthing";
 import {toast} from "sonner";
 import {generatePDFSummary, storePDFSummary} from "@/actions/upload-actions";
 import {useRef, useState} from "react";
+import {useRouter} from "next/navigation";
 
 //TODO: Schema validation using zod
 const schema = z.object({
@@ -17,6 +18,7 @@ export default function UploadForm(){
 
     const formRef = useRef<HTMLFormElement>(null);
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
     
     const {startUpload , routeConfig} = useUploadThing(
         'pdfUploader',{
@@ -71,7 +73,7 @@ export default function UploadForm(){
                     description:"Hang tight! Summafy is reading through the document ✨"
                 },
             )
-            setIsLoading(false);
+            // setIsLoading(false);
             //TODO: Parse the PDF using Lang chain
             const result = await generatePDFSummary(resp);
 
@@ -96,18 +98,17 @@ export default function UploadForm(){
                        description:'Your PDF has been successfully summarized and saved',
                    });
                     formRef.current?.reset();
+                    //redirect to the [id] summary page
+                    router.push(`/summaries/${storedResult.data.id}`);
                 }
-
             }
         }catch(error){
             setIsLoading(false);
            console.error("Error occurred",error);
            formRef.current?.reset();
+        }finally {
+            setIsLoading(false);
         }
-
-        //summarize the Pdf using AI
-        //save the summary to the database
-        //redirect to the individual summary page
     };
     return(
         <div className={"flex flex-col gap-8 w-full max-w-2xl mx-auto"}>

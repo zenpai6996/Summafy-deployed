@@ -18,7 +18,7 @@ const plans =[
         price:0,
         description: 'Best for Students',
         items:[
-            '10 PDF summaries per month',
+            '5 PDF summaries per month',
             'Standard processing speed',
             'Email support',
         ],
@@ -31,7 +31,7 @@ const plans =[
         price:50,
         description:'Best for Professionals',
         items:[
-            '30 PDF summaries per month',
+            '15 PDF summaries per month',
             'Priority Processing',
             'Markdown Export'
         ],

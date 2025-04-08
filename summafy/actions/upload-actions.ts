@@ -5,6 +5,7 @@ import {generateSummaryFromCohere} from "@/lib/aiService";
 import {auth} from "@clerk/nextjs/server";
 import {getDbConnection} from "@/lib/db";
 import {formatFileNameAsTitle} from "@/utils/format-utils";
+import {revalidatePath} from "next/cache";
 
 interface PDFSummaryType {
     userId?:string,
@@ -146,10 +147,15 @@ export async function storePDFSummary({
                 message:'Failed to save summary,Please try again',
             };
         }
+    //revalidate the cache
+        revalidatePath(`/summaries/${savedSummary.id}`);
         return{
             success:true,
             message:'Summary saved successfully',
-        }
+            data:{
+                id:savedSummary.id,
+            }
+        };
     }catch(error){
         return{
             success:false,
@@ -157,4 +163,5 @@ export async function storePDFSummary({
 
         }
     }
+
 }
