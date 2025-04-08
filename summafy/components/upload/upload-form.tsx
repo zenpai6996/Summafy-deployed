@@ -3,7 +3,7 @@ import UploadFormInput from "@/components/upload/upload-form-input";
 import {z} from 'zod';
 import {useUploadThing} from "@/utils/uploadthing";
 import {toast} from "sonner";
-import {generatePDFSummary} from "@/actions/upload-actions";
+import {generatePDFSummary, storePDFSummary} from "@/actions/upload-actions";
 import {useRef, useState} from "react";
 
 //TODO: Schema validation using zod
@@ -79,15 +79,23 @@ export default function UploadForm(){
             const {data = null  , message =null} = result || {}
 
             if(data){
+                let storedResult:any;
                 toast.info("Saving PDF📄...",{
                         description:"Hang tight! Summafy is saving your summary ✨"
                     },
                 );
-                if(formRef.current){
-                    formRef.current?.reset();
-                }
                 if(data.summary){
                    // save to the database
+                   storedResult= await storePDFSummary({
+                        fileUrl:resp[0].serverData.file.url,
+                        summary:data.summary,
+                        title:data.title,
+                        fileName:file.name,
+                    });
+                   toast.success(" ✨Summary generated!",{
+                       description:'Your PDF has been successfully summarized and saved',
+                   });
+                    formRef.current?.reset();
                 }
 
             }
