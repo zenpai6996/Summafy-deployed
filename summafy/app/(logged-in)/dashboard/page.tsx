@@ -3,17 +3,19 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {ArrowRight, Plus} from "lucide-react";
 import {SummaryCard} from "@/components/Summaries/summary-card";
+import {getSummaries} from "@/lib/summaries";
+import {currentUser} from "@clerk/nextjs/server";
+import {redirect} from "next/navigation";
+import EmptySummaryState from "@/components/Summaries/empty-summary-state";
 
-export default function DashboardPage(){
+export default async function DashboardPage(){
+    const user = await currentUser();
+    const userId = user?.id;
+    if(!userId) {
+        return redirect('/sign-in');
+    }
     const uploadLimit = 5;
-    const summaries = [{
-        id:1,
-        title:'Summary 1',
-        description:'This is a summary of the first document',
-        created_At:'2024-01-01 20:53:10.759642+00',
-        summary_text:'This is the summary text of the first document. The text is going to be longer testing lorem ipsum lorem ipsum',
-        status:'completed',
-    }]
+    const summaries = await getSummaries(userId);
     return(
         <main className={"min-h-screen"}>
             <BgGradient className={"from-purple-400 to-purple-500"}/>
@@ -38,13 +40,18 @@ export default function DashboardPage(){
                            </p>
                        </div>
                     </div>
-                    <div className={"grid grid-cols-1 gap-4 sm:gap-6 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 "}>
-                        {
+                    {
+                        summaries.length === 0 ?( <EmptySummaryState/> ):
+                            (
+                            <div className={"grid grid-cols-1 gap-4 sm:gap-6 sm:px-0 sm:grid-cols-2 lg:grid-cols-3 "}>
+                                {
                                 summaries.map((summary,index) => (
                                 <SummaryCard key={index} summary={summary}/>
-                            ))
-                        }
-                    </div>
+                                ))
+                                }
+                            </div>
+                            )
+                    }
                 </div>
             </div>
         </main>
