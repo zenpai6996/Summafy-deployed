@@ -69,15 +69,15 @@ export async function generatePDFSummary(uploadResponse:[
                 data:null,
             };
         }
+        const  formattedfileName= formatFileNameAsTitle(fileName);
         return{
             success:true,
             message:'Summary Generated successfully',
             data:{
-                title:fileName,
+                title:formattedfileName,
                 summary,
             },
         }
-        const  formattedfileName= formatFileNameAsTitle(fileName);
     }catch(err){
         return{
             success:false,
@@ -134,6 +134,7 @@ export async function storePDFSummary({
                 message:'User not found',
             };
         }
+
         savedSummary = await savePdfSummary({
             userId,
             fileUrl,
