@@ -38,79 +38,81 @@ export default function UploadForm(){
         }
     );
 
-    const handleSubmit=async (e:React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             setIsLoading(true);
             const formData = new FormData(e.currentTarget);
             const file = formData.get('file') as File;
 
-            //TODO: validating the file
+            // Validate the file
             const validatedFields = schema.safeParse({file});
             if(!validatedFields.success){
                 toast.error(
                     "❌ Something Went Wrong",{
-                        description:validatedFields.error.flatten().fieldErrors.file?.[0] ?? 'Invalid File',
+                        description: validatedFields.error.flatten().fieldErrors.file?.[0] ?? 'Invalid File',
                     });
                 setIsLoading(false);
                 return;
             }
-            toast.info("Uploading PDF📄...",{
-                    description:"We are uploading you PDF"
-                },
-            )
 
-            //TODO: Upload the file to uploadThing
+            toast.info("Uploading PDF📄...",{
+                description: "We are uploading your PDF"
+            });
+
+            // Upload the file to uploadThing
             const resp = await startUpload([file]);
             if(!resp){
                 toast.warning("Something Went Wrong!",{
-                    description:"Please use a different File"
-                })
+                    description: "Please use a different File"
+                });
                 setIsLoading(false);
                 return;
             }
+
             toast.info("Processing PDF📄...",{
-                    description:"Hang tight! Summafy is reading through the document ✨"
-                },
-            )
-            // setIsLoading(false);
-            //TODO: Parse the PDF using Lang chain
+                description: "Hang tight! Summafy is reading through the document ✨"
+            });
+
+            // Generate the summary
             const result = await generatePDFSummary(resp);
+            const {data = null} = result || {};
 
-
-            const {data = null  , message =null} = result || {}
-
-            if(data){
-                let storedResult:any;
+            if(data?.summary){
                 toast.info("Saving PDF📄...",{
-                        description:"Hang tight! Summafy is saving your summary ✨"
-                    },
-                );
-                if(data.summary){
-                   // save to the database
-                   storedResult= await storePDFSummary({
-                        fileUrl:resp[0].serverData.file.url,
-                        summary:data.summary,
-                        title:data.title,
-                        fileName:file.name,
+                    description: "Hang tight! Summafy is saving your summary ✨"
+                });
+
+                // Save to the database and wait for completion
+                const storedResult = await storePDFSummary({
+                    fileUrl: resp[0].serverData.file.url,
+                    summary: data.summary,
+                    title: data.title,
+                    fileName: file.name,
+                });
+
+                if(storedResult?.success && storedResult.data?.id) {
+                    toast.success("✨ Summary generated!",{
+                        description: 'Your PDF has been successfully summarized and saved',
                     });
-                   toast.success(" ✨Summary generated!",{
-                       description:'Your PDF has been successfully summarized and saved',
-                   });
                     formRef.current?.reset();
-                    //redirect to the [id] summary page
-                    router.push(`/summaries/${storedResult.data.id}`);
+
+                    // Add slight delay to ensure data is committed
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                    router.push(`/dashboard`);
+                    router.refresh(); // Force refresh the route
+                } else {
+                    throw new Error('Failed to save summary');
                 }
             }
-        }catch(error){
-            setIsLoading(false);
-           console.error("Error occurred",error);
-           formRef.current?.reset();
-        }finally {
+        } catch(error) {
+            console.error("Error occurred",error);
+            toast.error("Failed to process summary");
+            formRef.current?.reset();
+        } finally {
             setIsLoading(false);
         }
-    };
-    return(
+    };    return(
         <div className={"flex flex-col gap-8 w-full max-w-2xl mx-auto"}>
             <UploadFormInput isLoading={isLoading} ref={formRef} onSubmit={handleSubmit}/>
         </div>

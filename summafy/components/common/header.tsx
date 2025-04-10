@@ -6,7 +6,7 @@ export default function Header() {
 
 
     return(
-        <header className={"sticky top-0 z-50 w-full  bg-white/0 backdrop-blur-sm transition-all"}>
+        <header className={" top-0 z-50 w-full  bg-white/0  transition-all"}>
             <nav className={"container flex items-center justify-between py-4 lg:py-6 px-2 mx-auto"}>
                 <div className={"flex lg:flex-1"}>
                     <NavLink href={"/"} className={"flex items-center gap-1 lg:gap-2 shrink-0"}>
