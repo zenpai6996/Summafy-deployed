@@ -41,12 +41,11 @@ const plans =[
     },
     {
         name:'Exclusive',
-        price:1000,
+        price:500,
         description:'Lifetime pro Access',
         items:[
             'Unlimited PDF summaries',
             'Priority Processing',
-            '24/7 priority Support',
             'Markdown Export'
         ],
         id:'exclusive',

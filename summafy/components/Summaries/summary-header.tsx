@@ -1,5 +1,4 @@
 import {Button} from "@/components/ui/button";
-import {router} from "next/client";
 import Link from "next/link";
 import {Calendar, ChevronLeft, Sparkles,Clock} from "lucide-react";
 import {Badge} from "@/components/ui/badge";
