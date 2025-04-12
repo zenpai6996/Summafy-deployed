@@ -1,6 +1,6 @@
 
 import { Card } from "@/components/ui/card";
-import DeleteButton from "@/components/Summaries/delete-button";
+import DeleteButton from "./delete-button";
 import Link from "next/link";
 import {FileText} from "lucide-react";
 

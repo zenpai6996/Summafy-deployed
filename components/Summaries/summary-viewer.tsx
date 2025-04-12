@@ -1,9 +1,9 @@
 "use client"
 import {Card } from "../ui/card";
 import {useState} from "react";
-import {NavigationControls} from "../Summaries/navigation-controls";
-import ProgressBar from "../Summaries/progress-bar";
-import ContentSection from "../Summaries/content-section";
+import { NavigationControls } from "./navigation-controls";
+import ProgressBar from "./progress-bar";
+import ContentSection from "./content-section";
 
 export const parseSection = (section:string):{title:string;points:string[]} => {
     const [title, ...contentLines] = section.split('\n');
