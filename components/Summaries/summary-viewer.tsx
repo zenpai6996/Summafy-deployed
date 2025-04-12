@@ -1,10 +1,10 @@
 "use client"
-import {Card } from "@/components/ui/card";
+import {Card } from "../ui/card";
 import {useState} from "react";
-import {NavigationControls} from "@/components/Summaries/navigation-controls";
-import ProgressBar from "@/components/Summaries/progress-bar";
-import {parseSection} from "@/utils/summary-helper";
-import ContentSection from "@/components/Summaries/content-section";
+import {NavigationControls} from "../Summaries/navigation-controls";
+import ProgressBar from "../Summaries/progress-bar";
+import {parseSection} from "../../utils/summary-helper";
+import ContentSection from "../Summaries/content-section";
 
 
 
