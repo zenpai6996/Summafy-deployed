@@ -4,7 +4,7 @@ import {generateSummaryFromGemini} from "../lib/geminiAi";
 import {generateSummaryFromCohere} from "../lib/aiService";
 import {auth} from "@clerk/nextjs/server";
 import {getDbConnection} from "../lib/db";
-import {formatFileNameAsTitle} from "../utils/format-utils";
+import {formatFileNameAsTitle} from "../Utils/format-utils";
 import {revalidatePath} from "next/cache";
 
 interface PDFSummaryType {
