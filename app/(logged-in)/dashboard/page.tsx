@@ -28,7 +28,7 @@ export default async function DashboardPage(){
                                 Here you can find all your summaries. You can also create new summaries and manage your existing ones.
                             </p>
                         </div>
-                        <Button variant={"link"} className={"no-underline bg-gradient-to-r from-purple-300 to-purple-500 hover:from-purple-500 hover:to-purple-300 text-white transition-colors duration-500 ease-in-out rounded-3xl hover:scale-105 hover:transition-all duration-500 ease-in-out group hover:no-underline"}>
+                        <Button variant={"link"} className={"no-underline bg-gradient-to-r from-purple-300 to-purple-500 hover:from-purple-500 hover:to-purple-300 text-white transition-colors rounded-3xl hover:scale-105 hover:transition-all duration-500 ease-in-out group hover:no-underline"}>
                             <Link href={"/upload"} className={"flex text-white items-center "}><Plus className={"w-5 h-5 mr-2"}/>New Summary</Link>
                         </Button>
                     </div>
