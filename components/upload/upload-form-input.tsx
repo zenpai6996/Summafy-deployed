@@ -2,8 +2,24 @@
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {forwardRef} from "react";
-import { cn } from "@/lib/Utils"; 
 import {Loader2} from "lucide-react";
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export function formatFileName(url:string):string{
+  const fileName = url.split('/').pop() || '';
+  return fileName
+      .replace(/\.[^/.]+$/, '')
+      .replace(/[-_]/g, ' ')
+      .split(' ')
+      .map((word)=> word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() )
+      .join(' ');
+
+}
 
 interface UploadFormInputProps {
     onSubmit:(e:React.FormEvent<HTMLFormElement>) => void;

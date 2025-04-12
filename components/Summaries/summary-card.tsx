@@ -3,7 +3,24 @@ import { Card } from "@/components/ui/card";
 import DeleteButton from "@/components/Summaries/delete-button";
 import Link from "next/link";
 import {FileText} from "lucide-react";
-import { cn,formatFileName } from "@/lib/Utils";
+
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export function formatFileName(url:string):string{
+  const fileName = url.split('/').pop() || '';
+  return fileName
+      .replace(/\.[^/.]+$/, '')
+      .replace(/[-_]/g, ' ')
+      .split(' ')
+      .map((word)=> word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() )
+      .join(' ');
+
+}
 
 const SummaryHeader = ({fileUrl,title,created_at}:{fileUrl:string,title:string,created_at:string}) => {
     return( <div className={"flex items-start gap-2 sm:gap-4"}>
