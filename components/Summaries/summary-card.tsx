@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import DeleteButton from "@/components/Summaries/delete-button";
 import Link from "next/link";
 import {FileText} from "lucide-react";
-import {cn, formatFileName} from "../../lib/utils";
+import {cn, formatFileName} from "../../lib/Utils";
 
 const SummaryHeader = ({fileUrl,title,created_at}:{fileUrl:string,title:string,created_at:string}) => {
     return( <div className={"flex items-start gap-2 sm:gap-4"}>
