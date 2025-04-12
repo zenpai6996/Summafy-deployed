@@ -1,4 +1,3 @@
-import {retryUntil} from "effect/STM";
 
 function parsePoint(point: string) {
     const isNumbered =/^\d+\./.test(point);

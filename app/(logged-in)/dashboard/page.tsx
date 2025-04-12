@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {ArrowRight, Plus} from "lucide-react";
 import {SummaryCard} from "@/components/Summaries/summary-card";
-import {getSummaries} from "@/lib/summaries";
+import {getSummaries} from "../../../lib/summaries";
 import {currentUser} from "@clerk/nextjs/server";
 import {redirect} from "next/navigation";
 import EmptySummaryState from "@/components/Summaries/empty-summary-state";
