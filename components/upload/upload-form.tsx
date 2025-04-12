@@ -1,9 +1,9 @@
 "use client"
 import UploadFormInput from "./upload-form-input";
 import z from "zod";
-import { useUploadThing } from "@/Utils/uploadthing";
+import { useUploadThing } from "@/utils/uploadthing";
 import {toast} from "sonner";
-import { generatePDFSummary,storePDFSummary } from "actions/upload-actions";
+import { generatePDFSummary,storePDFSummary } from "@/actions/upload-actions";
 import {useRef, useState} from "react";
 import {useRouter} from "next/navigation";
 

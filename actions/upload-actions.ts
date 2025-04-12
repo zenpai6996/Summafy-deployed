@@ -5,7 +5,7 @@ import { generateSummaryFromCohere } from "@/lib/aiService";
 import {auth} from "@clerk/nextjs/server";
 import { getDbConnection } from "@/lib/db";
 import {revalidatePath} from "next/cache";
-import { formatFileNameAsTitle } from "@/Utils/format-utils";
+import { formatFileNameAsTitle } from "@/utils/format-utils";
 
 
 
