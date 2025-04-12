@@ -3,7 +3,7 @@ import {Card } from "../ui/card";
 import {useState} from "react";
 import {NavigationControls} from "../Summaries/navigation-controls";
 import ProgressBar from "../Summaries/progress-bar";
-import {parseSection} from "../../Utils/summary-helper";
+import { parseSection } from "@/Utils/summary-helper";
 import ContentSection from "../Summaries/content-section";
 
 

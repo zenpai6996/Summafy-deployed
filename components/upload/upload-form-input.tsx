@@ -2,7 +2,7 @@
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
 import {forwardRef} from "react";
-import {cn} from "@lib/Utils";
+import { cn } from "@/lib/utils"; 
 import {Loader2} from "lucide-react";
 
 interface UploadFormInputProps {
