@@ -1,4 +1,4 @@
-import {cn} from "../../lib/Utils";
+import { cn } from "@/lib/Utils";
 
 export default function ProgressBar({sections,currentSection}:{sections:Array<{title:string;points:String[]}>;currentSection:number}){
     return(

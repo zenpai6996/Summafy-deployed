@@ -1,4 +1,4 @@
-import {getSummaryById} from "../../../../lib/summaries";
+import {getSummaryById} from "../../@lib/summaries";
 import {FileText, OctagonAlert} from "lucide-react";
 import BgGradient from "@/components/common/BgGradient";
 import {SummaryHeader} from "@/components/Summaries/summary-header";

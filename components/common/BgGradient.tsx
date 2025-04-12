@@ -1,4 +1,4 @@
-import {cn} from "../../lib/Utils";
+import { cn } from "@/lib/Utils";
 
 export default function BgGradient({
                                        className
