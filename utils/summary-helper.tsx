@@ -1,9 +1,9 @@
-export const parseSection = (section:string):{title:string;points:String[]} => {
+export const parseSection = (section:string):{title:string;points:string[]} => {
     const [title, ...contentLines] = section.split('\n');
     const cleanTitle = title.startsWith('#') ? title.substring(1).trim() : title.trim();
     const content = contentLines.join('\n');
     const lines = content.split('\n');
-    const points : String[] =[];
+    const points : string[] =[];
     let currentPoint = '';
     lines.forEach((line) => {
         const trimmedLine = line.trim();
@@ -22,6 +22,6 @@ export const parseSection = (section:string):{title:string;points:String[]} => {
         title: cleanTitle,
         points:points.filter(
             (point) => point && !point.startsWith('#') && !point.startsWith('[Choose'),
-        ) as String[],
+        ) as string[],
     }
 }

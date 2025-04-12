@@ -7,7 +7,7 @@ import {usePathname} from "next/navigation";
 export default function NavLink({href,children,className}:
                                 {href:string,
                                  children:React.ReactNode,
-                                 className:string,
+                                 className?:string,
                                 }){
     const pathname =usePathname();
     const isActive = pathname === href || (href !== "/" && pathname.startsWith(href));

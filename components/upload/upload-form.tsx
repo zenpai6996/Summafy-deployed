@@ -32,8 +32,8 @@ export default function UploadForm(){
                     },
                 )
             },
-            onUploadBegin:({file}) => {
-                console.log("Upload has begun for",file);
+            onUploadBegin:(data) => {
+                console.log("Upload has begun for",data);
             },
         }
     );
@@ -61,8 +61,8 @@ export default function UploadForm(){
             });
 
             // Upload the file to uploadThing
-            const resp = await startUpload([file]);
-            if(!resp){
+            const uploadResponse = await startUpload([file]);
+            if(!uploadResponse){
                 toast.warning("Something Went Wrong!",{
                     description: "Please use a different File"
                 });
@@ -74,8 +74,13 @@ export default function UploadForm(){
                 description: "Hang tight! Summafy is reading through the document ✨"
             });
 
+            const uploadedFileUrl = uploadResponse[0].serverData.fileUrl;
+
             // Generate the summary
-            const result = await generatePDFSummary(resp);
+            const result = await generatePDFSummary({
+                fileUrl:uploadResponse[0].serverData.fileUrl,
+                fileName:file.name,
+            });
             const {data = null} = result || {};
 
             if(data?.summary){
@@ -85,7 +90,7 @@ export default function UploadForm(){
 
                 // Save to the database and wait for completion
                 const storedResult = await storePDFSummary({
-                    fileUrl: resp[0].serverData.file.url,
+                    fileUrl: uploadedFileUrl,
                     summary: data.summary,
                     title: data.title,
                     fileName: file.name,
