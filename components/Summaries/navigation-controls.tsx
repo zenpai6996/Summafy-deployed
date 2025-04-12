@@ -1,5 +1,5 @@
 import {Button} from "@/components/ui/button";
-import { cn } from "@/lib/Utils";
+import { cn } from "@/lib/utils";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 
 export function NavigationControls({
