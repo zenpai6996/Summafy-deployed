@@ -42,7 +42,7 @@ export default function RootLayout({
     >
         <html lang="en">
         <body
-            className={`${fontSans.variable} font-sans antialiased`}
+            className={`${fontSans.variable} bg-neutral-950 font-sans antialiased`}
         >
         <div className={"  relative flex min-h-screen flex-col"}>
             <Header/>
