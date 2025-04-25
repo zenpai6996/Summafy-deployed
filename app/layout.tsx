@@ -5,6 +5,8 @@ import Header from "@/components/common/header";
 import Footer from "@/components/common/Footer";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
+import Aurora from "@/components/common/Aurora";
+
 
 const fontSans = Source_Sans_3({
   variable: "--font-sans",
@@ -40,13 +42,21 @@ export default function RootLayout({
             }
         }}
     >
-        <html lang="en">
+        <html lang="en" style={{scrollBehavior:'smooth'}}>
         <body
             className={`${fontSans.variable} bg-neutral-950 font-sans antialiased`}
         >
+         
         <div className={"  relative flex min-h-screen flex-col"}>
-            <Header/>
-            <main className={"flex-1"}>
+        <Aurora
+                    colorStops={["#FF94B4", "#3A29FF", "#FF94B4"]}
+                    blend={0.5}
+                    amplitude={1.3}
+                    speed={0.4}
+                    className="fixed inset-0 -z-10"
+                  />
+            <Header className="relative z-10"/>
+            <main className={"flex-1 relative z-0"}>
                 {children}
             </main>
             <Footer/>

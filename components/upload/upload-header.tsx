@@ -30,7 +30,7 @@ export default function UploadHeader(){
                     </span>{" "}
             </div>
             <div className={"mt-2 text-lg leading-8 text-gray-600 max-w-2xl text-center"}>
-                <p>Upload your PDF and let Summafy fo the magic! ✨</p>
+                <p>Upload your PDF and let Summafy do the magic! ✨</p>
             </div>
         </div>
 

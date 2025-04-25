@@ -40,7 +40,7 @@ const plans =[
             'Email support',
         ],
         id:'basic',
-        paymentLink: '/upload',
+        paymentLink: '/',
         priceId: '',
     },
     {

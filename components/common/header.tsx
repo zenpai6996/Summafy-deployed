@@ -9,16 +9,16 @@ const navLinks = [
     { label: "Pricing", href: "#pricing" },
 ];
 
-export default function Header() {
+export default function Header({className}:{className?:string}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return <section className={"py-4 lg:py-8 relative"}>
+    return <section className={`py-4 lg:py-8 relative ${className}`}>
         <div className='container max-w-5xl'>
-            <div className={"grid grid-cols-2 lg:grid-cols-3 border border-purple-400/50 rounded-full p-2 px-4 md:pr-2 items-center"}>
+            <div className={"grid grid-cols-2 lg:grid-cols-3 border border-gray-300/50 rounded-full p-2 px-4 md:pr-2 items-center"}>
                 <div>
                     <NavLink href={"/"} className={"flex items-center gap-1 lg:gap-2 shrink-0"}>
                         <FileTerminal
@@ -45,7 +45,7 @@ export default function Header() {
                 <div className={"flex justify-end gap-4 items-center"}>
                     
                 <div className="md:hidden">
-                        <label className="hamburger flex items-center justify-center">
+                        <label className="hamburger flex items-center justify-center mt-1">
                             <input
                                 type="checkbox"
                                 checked={isMenuOpen}
@@ -62,7 +62,10 @@ export default function Header() {
                     {/* Show login button when signed out */}
                     <SignedOut>
                         <NavLink href='/sign-in'>
-                            <Button2 className={"hidden md:inline-flex items-center"} variant={"primary"}>Log In</Button2>
+                            <Button2 className={"hidden md:inline-flex items-center"} variant={"secondary"}>Log In</Button2>
+                        </NavLink>
+                        <NavLink href='/sign-up'>
+                            <Button2 className={"hidden md:inline-flex items-center"} variant={"primary"}>Sign up</Button2>
                         </NavLink>
                     </SignedOut>
                     

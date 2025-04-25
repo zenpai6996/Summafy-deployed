@@ -1,4 +1,4 @@
-import BgGradient from "@/components/common/BgGradient";
+
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {ArrowRight, Plus} from "lucide-react";
@@ -18,7 +18,7 @@ export default async function DashboardPage(){
     const summaries = await getSummaries(userId);
     return(
         <main className={"min-h-screen"}>
-            <BgGradient className={"from-purple-400 to-purple-500"}/>
+           
             <div className={"container mx-auto flex flex-col gap-4"}>
                 <div className={"px-2 py-12 sm:py-24"}>
                     <div className={"flex gap-4 mb-8 justify-between"}>

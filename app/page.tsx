@@ -1,5 +1,5 @@
 import HeroSection from "@/components/home/HeroSection";
-import BgGradient from "@/components/common/BgGradient";
+
 import DemoSection from "@/components/home/DemoSection";
 import HowItWorks from "@/components/home/HowItWorks";
 import PricingSection from "@/components/home/PricingSection";
@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <div className={"relative w-full"}>
         {/*HeroSection*/}
-        <BgGradient/>
+        
         <div className={"flex flex-col"}>
             <HeroSection />
             {/*DemoSection*/}
-            <DemoSection/>
+            {/* <DemoSection/> */}
             {/*HowItWorksSection*/}
             <HowItWorks/>
             {/*PricingSection*/}

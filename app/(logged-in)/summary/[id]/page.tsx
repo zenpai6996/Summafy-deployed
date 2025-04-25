@@ -1,6 +1,6 @@
 import { getSummaryById } from "@/lib/summaries";
 import {FileText, OctagonAlert} from "lucide-react";
-import BgGradient from "@/components/common/BgGradient";
+
 import {SummaryHeader} from "@/components/Summaries/summary-header";
 import {SourceInfo} from "@/components/Summaries/source-info";
 import {SummaryViewer} from "@/components/Summaries/summary-viewer";
@@ -21,7 +21,7 @@ export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
     const reading_time = Math.ceil((word_count || 0) / 200);
     return (
         <div className={" min-h-screen "}>
-            <BgGradient className={"from-purple-400 to-purple-500"}/>
+            
             <div className={"container mx-auto flex flex-col gap-4"}>
                 <div className={"px-4 sm:px-6 lg:px-8 sm:py-12 lg:py-24"}>
                     <div className={"flex flex-col"}>

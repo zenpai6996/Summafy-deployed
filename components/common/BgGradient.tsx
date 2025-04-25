@@ -17,7 +17,7 @@ export function formatFileName(url:string):string{
 
 }
 
-export default function BgGradient({
+export default function BgGradient1({
                                        className
                                    }:{
     className?:string;

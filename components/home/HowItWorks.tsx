@@ -1,4 +1,4 @@
-import BgGradient from "@/components/common/BgGradient";
+
 import {ReactNode} from "react";
 import {BrainCircuit, FileOutput, FileText, MoveRight} from "lucide-react";
 
@@ -28,23 +28,17 @@ const Step: Step[] = [
 
 export default function HowItWorks(){
     return(
-        <section className={"relative overflow-hidden bg-gray-50 "}>
+        <section className={"relative overflow-hidden bg-transparent "}>
             <div className={"py-12 lg:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 "}>
                 <div
 
                     aria-hidden={"true"}
                     className="pointer-events-none absolute inset-0 -z-10 transform-gpu overflow-hidden blur-3xl">
-                    <div
-                        className="relative left-[calc(50%+3rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 bg-linear-to-br from-emerald-500 via-teal-500 to-cyan-500 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                        style={{
-                            clipPath:
-                                'polygon(74.15% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0. 1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%,47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.14%)',
-                        }}
-                    />
+                    
                     </div>
                 <div className={"text-center mb-16"}>
                     <h2 className={"font-bold text-xl uppercase mb-4 text-[#C68EFD]"}>How it Works</h2>
-                    <h3 className={"font-bold text-3xl max-w-2xl mx-auto"}>Transform any PDF into an easy-to-digest summary in three single steps</h3>
+                    <h3 className={"font-bold text-3xl text-gray-300 max-w-2xl mx-auto"}>Transform any PDF into an easy-to-digest summary in three single steps</h3>
                 </div>
                 <div className={"grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative"}>
                     {Step.map((step, idx) => (
@@ -77,8 +71,8 @@ function StepItem({icon, label, description}: Step) {
                     </div>
                 </div>
                 <div className={"flex flex-col flex-1 gap-1 justify-between"}>
-                    <h4 className={"text-center font-bold text-xl"}>{label}</h4>
-                    <p className={"text-center text-gray-600 text-sm"}>{description}</p>
+                    <h4 className={"text-center font-bold text-xl text-gray-300"}>{label}</h4>
+                    <p className={"text-center text-gray-400 text-sm"}>{description}</p>
                 </div>
             </div>
         </div>
