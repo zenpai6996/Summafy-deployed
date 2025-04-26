@@ -4,6 +4,7 @@ import DemoSection from "@/components/home/DemoSection";
 import HowItWorks from "@/components/home/HowItWorks";
 import PricingSection from "@/components/home/PricingSection";
 import CTASection from "@/components/home/CTASection";
+import Faq from "@/components/home/FAQ";
 
 
 export default function Home() {
@@ -17,13 +18,14 @@ export default function Home() {
             {/* <DemoSection/> */}
             {/*HowItWorksSection*/}
             <HowItWorks/>
+            {/*FAQSection*/}
+            <Faq/>
             {/*PricingSection*/}
             <PricingSection/>
-            
             {/*CTAsection*/}
             <CTASection/>
+            {/*Footer*/}
         </div>
-        {/*Footer*/}
     </div>
   );
 }
