@@ -5,6 +5,7 @@ import HowItWorks from "@/components/home/HowItWorks";
 import PricingSection from "@/components/home/PricingSection";
 import CTASection from "@/components/home/CTASection";
 
+
 export default function Home() {
   return (
     <div className={"relative w-full"}>
@@ -18,6 +19,7 @@ export default function Home() {
             <HowItWorks/>
             {/*PricingSection*/}
             <PricingSection/>
+            
             {/*CTAsection*/}
             <CTASection/>
         </div>

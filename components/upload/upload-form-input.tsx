@@ -36,10 +36,10 @@ const UploadFormInput= forwardRef<HTMLFormElement,UploadFormInputProps>(({onSubm
                     name={"file"}
                     accept={"application/pdf"}
                     required
-                    className={cn(isLoading && 'opacity-50 cursor-not-allowed')}
+                    className={cn('text-gray-300',isLoading && ' opacity-50 cursor-not-allowed')}
                     disabled={isLoading}
                 />
-                <Button disabled={isLoading}>{
+                <Button disabled={isLoading} className="bg-gradient-to-r from-[#C95792] to-transparent text-gray-300">{
                     isLoading ? <><Loader2 className={"mr-2 h-4 w-4 animate-spin"}/> Processing...</> : "Upload Your PDF"
                 }</Button>
             </div>

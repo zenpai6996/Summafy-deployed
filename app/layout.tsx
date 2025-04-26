@@ -51,9 +51,12 @@ export default function RootLayout({
         <Aurora
                     colorStops={["#FF94B4", "#3A29FF", "#FF94B4"]}
                     blend={0.5}
-                    amplitude={1.3}
+                    amplitude={typeof window !== 'undefined' ? 
+                      (window.innerWidth < 768 ? 0.3 : 1.3) : 
+                      1.3
+                    }
                     speed={0.4}
-                    className="fixed inset-0 -z-10"
+                    className="fixed inset-0 -z-10 aurora-amplitude"
                   />
             <Header className="relative z-10"/>
             <main className={"flex-1 relative z-0"}>

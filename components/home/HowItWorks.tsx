@@ -1,6 +1,7 @@
 
 import {ReactNode} from "react";
 import {BrainCircuit, FileOutput, FileText, MoveRight} from "lucide-react";
+import SpotlightCard from "../common/Spotlight";
 
 type Step ={
     icon:ReactNode;
@@ -41,6 +42,7 @@ export default function HowItWorks(){
                     <h3 className={"font-bold text-3xl text-gray-300 max-w-2xl mx-auto"}>Transform any PDF into an easy-to-digest summary in three single steps</h3>
                 </div>
                 <div className={"grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative"}>
+                    
                     {Step.map((step, idx) => (
 
                             <div className={"relative flex items-stretch"} key={idx} >
@@ -63,7 +65,8 @@ export default function HowItWorks(){
 
 function StepItem({icon, label, description}: Step) {
     return(
-        <div className={"cursor-pointer relative mx-10 p-6 rounded-2xl bg-white/5 backdrop-blur-xs border border-white/10 hover:border-[#C68EFD] transition-colors group-w-full hover:scale-110 hover:transition-all duration-300 ease-in-out"}>
+        <SpotlightCard className="custom-spotlight-card cursor-pointer  bg-white/5 backdrop-blur-xs border border-white/10 hover:border-[#C68EFD] transition-colors group-w-full hover:scale-110 hover:transition-all duration-300 ease-in-out mx-10 p-6" spotlightColor="rgba(0, 229, 255, 0.2)">            
+        <div className={"relative  rounded-2xl"}>
             <div className={"flex flex-col gap-4 h-full"}>
                 <div className={"flex items-center justify-center h-24 w-24 mx-auto rounded-2xl bg-gradient-to-br from-[#FED2E2] to-transparent group-hover:from-[#C68EFD]/20 transition-colors"}>
                     <div className={"text-[#C68EFD] "}>
@@ -76,5 +79,6 @@ function StepItem({icon, label, description}: Step) {
                 </div>
             </div>
         </div>
+        </SpotlightCard>
     )
 }
