@@ -75,7 +75,7 @@ export function SummaryCard({ summary }: { summary: any }) {
   
 
         <Card className="relative h-full border-hidden overflow-hidden hover:shadow-md bg-transparent duration-200 hover:scale-105 transition-all duration-300 ease-in-out">
-            <SpotlightCard className="custom-spotlight-card bg-white" spotlightColor="rgba(198, 142, 253, 1)">
+            <SpotlightCard className=" bg-white">
             <div className="absolute top-1 right-1 z-10">
                 <DeleteButton summaryId={summary.id}/>
             </div>

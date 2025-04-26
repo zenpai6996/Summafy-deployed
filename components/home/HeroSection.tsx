@@ -28,7 +28,7 @@ export default function HeroSection(){
                 <div>
                  <SignedIn>
                  <Link href="/upload">
-                    <SparkyButton>
+                    <SparkyButton >
                     <span className="flex gap-2 items-center relative z-10">
                         Try Summafy
                     </span>

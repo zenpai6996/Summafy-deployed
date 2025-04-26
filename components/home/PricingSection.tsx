@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckIcon} from "lucide-react";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import Tag from "@/components/common/Tag";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -133,7 +134,7 @@ export default function PricingSection(){
             <div className={"py-12 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 "}>
                 <div className={"flex items-center justify-center w-full pb-12"}>
                     <h2 className={"uppercase font-bold text-xl mb-8 text-[#C68EFD]"}>
-                        Pricing
+                        <Tag>Pricing</Tag>
                     </h2>
                 </div>
                 <div className={"relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8"}>

@@ -23,8 +23,8 @@ export default async function DashboardPage(){
                 <div className={"px-2 py-12 sm:py-24"}>
                     <div className={"flex gap-4 mb-8 justify-between"}>
                         <div className={"flex flex-col gap-2"}>
-                            <h1 className={" text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight  bg-gray-300 bg-clip-text text-transparent"}>Your Summaries</h1>
-                            <p className={"text-gray-400 text-1xl md:text-2xl lg:text-3xl"}>
+                            <h1 className={" text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight  bg-gradient-to-r from-[#7C00FE] via-[#A5158C] to-[#FF2DF1] bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient"}>Your Summaries</h1>
+                            <p className={"text-gray-300 text-1xl md:text-2xl lg:text-3xl"}>
                                 Here you can find all your summaries. You can also create new summaries and manage your existing ones.
                             </p>
                         </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/header";
-import Footer from "@/components/common/Footer";
+import {Footer} from "@/components/common/Footer";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
 import Aurora from "@/components/common/Aurora";
@@ -56,7 +56,7 @@ export default function RootLayout({
                       1.3
                     }
                     speed={0.4}
-                    className="fixed inset-0 -z-10 aurora-amplitude"
+                    className="fixed inset-0 -z-10 aurora-amplitude "
                   />
             <Header className="relative z-10"/>
             <main className={"flex-1 relative z-0"}>
