@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: Summafy
+    runtime: node
+    repo: https://github.com/zenpai6996/Summafy-deployed
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: LEMON_SQUEEZY_KEY
+        sync: false
+      - key: DATABASE_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: COHERE_API_KEY
+        sync: false
+      - key: UPLOADTHING_TOKEN
+        sync: false
+      - key: CLERK_SECRET_KEY
+        sync: false
+      - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        sync: false
+      - key: PORT
+        sync: false
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    rootDir: ./
+version: "1"
