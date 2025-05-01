@@ -50,6 +50,7 @@ function SocialIcon({ href, icon, label }) {
         )
     };
 
+
     const hoverColors = {
         linkedin: "hover:bg-blue-600",
         github: "hover:bg-gray-800",
@@ -57,15 +58,26 @@ function SocialIcon({ href, icon, label }) {
     };
 
     return (
-        <Link
-            href={href}
-            aria-label={label}
-            className={`flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/40 text-gray-300 transition-all ${hoverColors[icon]} hover:text-white hover:shadow-lg hover:scale-110`}
-            target="_blank"
-            rel="noreferrer"
-        >
-            {iconSvg[icon]}
-            <span className="sr-only">{label}</span>
-        </Link>
+        <div className="group relative">
+            <Link
+                href={href}
+                aria-label={label}
+                className={`flex h-10 w-10 items-center justify-center rounded-full bg-gray-800/40 text-gray-300 transition-all ${hoverColors[icon]} hover:text-white hover:shadow-lg hover:scale-110`}
+                target="_blank"
+                rel="noreferrer"
+            >
+                {iconSvg[icon]}
+                <span className="sr-only">{label}</span>
+            </Link>
+
+            {/* Tooltip */}
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 transform opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="relative whitespace-nowrap rounded bg-gray-900 px-2.5 py-1 text-xs font-medium text-white">
+                    <span>{label}</span>
+                    {/* Tooltip arrow */}
+                    <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </div>
+            </div>
+        </div>
     )
 }
