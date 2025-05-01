@@ -3,8 +3,9 @@ import { FileTerminal, X } from 'lucide-react';
 import NavLink from "@/components/common/nav-link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Button2 from '../ui/button2';
-import { useState } from 'react';
+import {useRef, useState,useEffect} from 'react';
 import Link from "next/link";
+
 
 const navLinks = [
     { label: "Pricing", href: "#pricing" },
@@ -12,10 +13,30 @@ const navLinks = [
 
 export default function Header({className}:{className?:string}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuRef = useRef(null);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMenuOpen]);
 
     return <section className={`py-4 lg:py-8 relative sticky top-0 z-50  ${className}`}>
         <div className='container max-w-5xl'>
@@ -89,7 +110,7 @@ export default function Header({className}:{className?:string}) {
             </div>
 
             {isMenuOpen && (
-                <div className="md:hidden absolute top-full right-10 w-50% mt-2 py-4  backdrop-blur-md rounded-lg shadow-lg z-50 transition-all duration-300 ease-in-out">
+                <div ref={menuRef} className="md:hidden absolute top-full right-10 w-50% mt-2 py-4  backdrop-blur-md rounded-lg shadow-lg z-50 transition-all duration-300 ease-in-out">
                     <div className="container max-w-5xl">
                         <div className="flex flex-col space-y-4 text-gray-300 font-medium px-4">
                             <Link href="/#" as="/#">

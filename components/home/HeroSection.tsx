@@ -1,14 +1,15 @@
-"use client"
-import {useState} from "react";
+
 import SparkyButton from "../ui/SparkyButton";
 import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
+import {FlipWords} from "@/components/ui/flip-words";
+
 
 
 export default function HeroSection(){
-    const [isHovered, setIsHovered] = useState(false);
+    const words = ["Impactful","Meaningful","Effective","Transformative","Dynamic","Compelling"];
     return (
         <section className="overflow-x-clip">
             <div className={"relative mx-auto flex flex-col z-0 items-center justify-center py-16 sm:py-20 lg:pb-28 transition-all animate-in lg:px-12 max-w-7xl "}>
@@ -20,20 +21,24 @@ export default function HeroSection(){
                     </div>
                 </div>
                 <h1 className={"text-gray-300 font-bold py-6 text-center"}>
-                Impactful Summaries, created effortlessly
+
+                    <FlipWords className={"text-white"} words={words}/> <br/>
+                    Summaries, created effortlessly
                 </h1>
-                <h2 className={" text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl pb-8 text-gray-300"}>
+                <h2 className={" text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl pb-8 text-gray-400"}>
                     Transform lengthy documents into clear, actionable summaries
                 </h2>
                 <div>
                  <SignedIn>
-                 <Link href="/upload">
-                    <SparkyButton >
-                    <span className="flex gap-2 items-center relative z-10">
+
+                    <SparkyButton  >
+
+                        <span  className="flex gap-2 items-center relative z-10">
                         Try Summafy
                     </span>
+
                     </SparkyButton>
-                </Link>
+
                  </SignedIn>
                  <SignedOut>
                  
