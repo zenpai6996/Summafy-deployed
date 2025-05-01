@@ -12,13 +12,13 @@ jobs:
         uses: chrnorm/deployment-action@v2
         id: deployment
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           environment: production
 
       - name: Update Deployment Status
         uses: chrnorm/deployment-status@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           state: success
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           environment-url: https://summafy.onrender.com
