@@ -74,7 +74,7 @@ const plans =[
 const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => {
     return (
       
-        <div className={"relative w-full max-w-lg hover:scale-105 hover:transition-all duration-300"}>
+        <div className={"relative w-full max-w-lg bg-white/5 backdrop-blur-xs hover:scale-105 hover:transition-all duration-300"}>
             
            <div className={cn("relative flex flex-col h-full gap-4 lg:gap-8 z-10 p-8 border border-gray-300/20 rounded-2xl",id === 'pro' && "border-[#E9A5F1] gap-5 border-2",id === 'exclusive' && "hover:border-[#FFB200] ")}>
             <div className={"flex justify-between items-center gap-4"}>

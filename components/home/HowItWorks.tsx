@@ -63,7 +63,7 @@ export default function HowItWorks(){
 
 function StepItem({icon, label, description}: Step) {
     return(
-        <SpotlightCard className="custom-spotlight-card cursor-pointer bg-white/5 backdrop-blur-xs border border-white/10 hover:border-[#C68EFD] transition-colors group-w-full hover:scale-110 hover:transition-all duration-300 ease-in-out p-6" spotlightColor="rgba(0, 229, 255, 0.2)">
+        <SpotlightCard className="custom-spotlight-card cursor-pointer bg-white/5 backdrop-blur-xs border border-white/30 hover:border-[#C68EFD] transition-colors group-w-full hover:scale-110 hover:transition-all duration-300 ease-in-out p-6" spotlightColor="rgba(0, 229, 255, 0.2)">
             <div className={"relative rounded-2xl"}>
                 <div className={"flex flex-col gap-4 h-full"}>
                     <div className={"flex items-center justify-center h-24 w-24 mx-auto rounded-2xl bg-gradient-to-br from-[#FED2E2] to-transparent group-hover:from-[#C68EFD]/20 transition-colors"}>

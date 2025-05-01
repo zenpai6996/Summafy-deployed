@@ -6,7 +6,7 @@ export function Footer() {
             <div className="container flex flex-col items-center justify-between gap-6 py-12 md:flex-row md:py-8">
                 <div className="flex flex-col items-center md:items-start">
                     <p className="text-sm font-medium text-gray-300">
-                        <span className="opacity-80">Created with </span>
+                        <span className="opacity-80">Crafted with </span>
                         <span className="text-red-500">❤️</span>
                         <span className="opacity-80"> by </span>
                         <Link
