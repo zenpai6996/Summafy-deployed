@@ -7,6 +7,8 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import SpotlightCard from "../common/Spotlight";
 import {CardContainer, CardItem} from "@/components/ui/3d-card";
+import {MotionDiv} from "@/components/common/motion-wrapper";
+import {itemVariants} from "@/utils/constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -75,7 +77,13 @@ export function SummaryCard({ summary }: { summary: any }) {
     return (
   
 
-        <CardContainer>
+        <MotionDiv
+            initial={'hidden'}
+            animate={'visible'}
+            variants={itemVariants}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2,ease:'easeOut' } }}
+        >
+            <CardContainer>
             <Card className="relative bg-white/20 backdrop-blur-md h-full border-1 border-purple-500  overflow-hidden hover:shadow-md  duration-200 hover:scale-105 transition-all duration-300 ease-in-out">
 
                 <div className="absolute top-1 right-1 z-10">
@@ -105,6 +113,7 @@ export function SummaryCard({ summary }: { summary: any }) {
                 </Link>
 
             </Card>
-        </CardContainer>
+            </CardContainer>
+        </MotionDiv>
     );
 }

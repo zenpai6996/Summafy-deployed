@@ -5,40 +5,50 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { Button } from "../ui/button";
 import { ArrowRight } from "lucide-react";
 import {FlipWords} from "@/components/ui/flip-words";
+import {MotionDiv, MotionH1, MotionH2, MotionSection, MotionSpan} from "@/components/common/motion-wrapper";
+import {containerVariants, itemVariants} from "@/utils/constants";
 
-
+const buttonVariants = {
+    scale:1.05,
+    transition:{
+        type:"string",
+        stiffness:300,
+        damping:10,
+    },
+};
 
 export default function HeroSection(){
     const words = ["Impactful","Meaningful","Effective","Transformative","Dynamic","Compelling"];
     return (
-        <section className="overflow-x-clip">
+        <MotionSection
+            variants={containerVariants}
+            initial={"hidden"}
+            animate={"visible"}
+            className="overflow-x-clip">
             <div className={"relative mx-auto flex flex-col z-0 items-center justify-center py-16 sm:py-20 lg:pb-28 transition-all animate-in lg:px-12 max-w-7xl "}>
                 <div className={"flex"}>
                     <div className={"relative p-[1px] overflow-hidden rounded-full bg-linear-to-r from-[#FED2E2] via-[#C68EFD] to-[#8F87F1] animate-gradient-x group"}>
                     <div className={"flex cursor-pointer justify-center"}>
-                 <div className={"inline-flex py-1 px-4 bg-gradient-to-r from-purple-500 to-pink-300 rounded-full text-gray-300 font-semibold"}>Powered by AI ✨</div>
-             </div>
-                    </div>
-                </div>
-                <h1 className={"text-gray-300 font-bold py-6 text-center"}>
+                    <MotionDiv variants={containerVariants} className={"inline-flex py-1 px-4 bg-gradient-to-r from-purple-500 to-pink-300 rounded-full text-gray-200 font-semibold"}>Powered by AI ✨
+                    </MotionDiv>
+              </div>
+              </div>
+              </div>
+                <MotionH1 variants={itemVariants} className={"text-gray-300 font-bold py-6 text-center"}>
 
                     <FlipWords className={"text-white"} words={words}/> <br/>
                     Summaries, created effortlessly
-                </h1>
-                <h2 className={" text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl pb-8 text-gray-400"}>
+                </MotionH1>
+                <MotionH2 variants={itemVariants} className={" text-lg sm:text-xl lg:text-2xl text-center px-4 lg:px-0 lg:max-w-4xl pb-8 text-gray-400"}>
                     Transform lengthy documents into clear, actionable summaries
-                </h2>
-                <div>
+                </MotionH2>
+                <MotionDiv variants={itemVariants}>
                  <SignedIn>
-
-                    <SparkyButton  >
-
-                        <span  className="flex gap-2 items-center relative z-10">
+                     <SparkyButton>
+                    <MotionSpan variants={itemVariants}  className="flex gap-2 items-center relative z-10">
                         Try Summafy
-                    </span>
-
-                    </SparkyButton>
-
+                    </MotionSpan>
+                     </SparkyButton>
                  </SignedIn>
                  <SignedOut>
                  
@@ -58,8 +68,8 @@ export default function HeroSection(){
                     </Button>
                 
                  </SignedOut>
+                </MotionDiv>
                 </div>
-                </div>
-        </section>
+        </MotionSection>
     )
 }

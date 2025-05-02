@@ -1,8 +1,9 @@
 
 import {ReactNode} from "react";
-import {BrainCircuit, FileOutput, FileText, MoveRight} from "lucide-react";
+import {BookOpen, BookOpenCheck, Bot,  MoveRight} from "lucide-react";
 import SpotlightCard from "../common/Spotlight";
 import Tag from "../common/Tag";
+import {MotionDiv, MotionH2, MotionH3} from "@/components/common/motion-wrapper";
 
 type Step ={
     icon:ReactNode;
@@ -12,17 +13,17 @@ type Step ={
 
 const Step: Step[] = [
     {
-       icon: <FileText size={64} strokeWidth={1.5}/>,
+       icon: <BookOpen size={64} strokeWidth={1.5}/>,
        label:"Upload your PDF",
        description:"Drag and drop your PDF or click to upload",
     },
     {
-        icon: <BrainCircuit size={64} strokeWidth={1.5}/>,
+        icon: <Bot size={64} strokeWidth={1.5}/>,
         label:"AI analysis",
         description:"Our AI analyzes your document instantly",
     },
     {
-        icon: <FileOutput size={64} strokeWidth={1.5}/>,
+        icon: <BookOpenCheck size={64} strokeWidth={1.5}/>,
         label:"Get your Summary",
         description:"Get a concise summary of your document",
     },
@@ -39,21 +40,37 @@ export default function HowItWorks(){
                     
                     </div>
                 <div className={"text-center mb-16"}>
-                    <h2 className={"font-bold text-xl uppercase mb-4 text-[#C68EFD]"}><Tag>How it Works</Tag></h2>
-                    <h3 className={"font-bold text-3xl text-gray-300 max-w-2xl mx-auto"}>Transform any PDF into an easy-to-digest summary in three single steps</h3>
+                    <MotionH2
+                        initial={{opacity:0,y:20}}
+                        whileInView={{opacity:1,y:0}}
+                        transition={{duration:0.5}}
+                        className={"font-bold text-xl uppercase mb-4 text-[#C68EFD]"}><Tag>How it Works</Tag></MotionH2>
+                    <MotionH3
+                        initial={{opacity:0,y:20}}
+                        whileInView={{opacity:1,y:0}}
+                        transition={{duration:0.5,delay:0.2}}
+                        className={"font-bold text-3xl text-gray-300 max-w-2xl mx-auto"}>Transform any PDF into an easy-to-digest summary in three single steps</MotionH3>
                 </div>
                 <div className={"grid grid-cols-1 md:grid-cols-3  gap-8 md:gap-20 max-w-4xl mx-auto relative"}>
                     {Step.map((step, idx) => (
-                        <div className={"relative flex items-stretch justify-center"} key={idx}>
+                        <MotionDiv
+                            initial={{opacity:0,y:50}}
+                            whileInView={{opacity:1,y:0}}
+                            transition={{duration:0.5,delay: idx * 0.2}}
+                            className={"relative flex items-stretch justify-center"} key={idx}>
                             <StepItem {...step} />
                             {
                                 idx < Step.length -1 && (
-                                    <div className={"hidden absolute md:block top-1/2 -right-14 transform -translate-y-1/2 z-10"}>
+                                    <MotionDiv
+                                        initial={{opacity:0}}
+                                        whileInView={{opacity:1}}
+                                        transition={{duration:0.5,delay: idx * 0.2 + 0.3}}
+                                        className={"hidden absolute md:block top-1/2 -right-14 transform -translate-y-1/2 z-10"}>
                                         <MoveRight size={32} strokeWidth={1} className={"text-[#C68EFD]"}/>
-                                    </div>
+                                    </MotionDiv>
                                 )
                             }
-                        </div>
+                        </MotionDiv>
                     ))}
                 </div>
             </div>
@@ -66,8 +83,8 @@ function StepItem({icon, label, description}: Step) {
         <SpotlightCard className="custom-spotlight-card cursor-pointer bg-white/5 backdrop-blur-xs border border-white/30 hover:border-[#C68EFD] transition-colors group-w-full hover:scale-110 hover:transition-all duration-300 ease-in-out p-6" spotlightColor="rgba(0, 229, 255, 0.2)">
             <div className={"relative rounded-2xl"}>
                 <div className={"flex flex-col gap-4 h-full"}>
-                    <div className={"flex items-center justify-center h-24 w-24 mx-auto rounded-2xl bg-gradient-to-br from-[#FED2E2] to-transparent group-hover:from-[#C68EFD]/20 transition-colors"}>
-                        <div className={"text-[#C68EFD] "}>
+                    <div className={"flex items-center justify-center h-24 w-24 mx-auto rounded-2xl bg-gradient-to-br from-[#8F87F1] to-transparent group-hover:from-[#C68EFD]/20 transition-colors"}>
+                        <div className={"text-[#FED2E2] "}>
                             {icon}
                         </div>
                     </div>

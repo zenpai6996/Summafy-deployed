@@ -49,7 +49,7 @@ export default function UploadForm() {
       const validatedFields = schema.safeParse({ file });
       if (!validatedFields.success) {
         toast.error(
-          "❌ Something Went Wrong", {
+          " Something Went Wrong ❌", {
           description: validatedFields.error.flatten().fieldErrors.file?.[0] ?? 'Invalid File',
         });
         setIsLoading(false);
@@ -71,7 +71,7 @@ export default function UploadForm() {
       }
 
       toast.info("Processing PDF📄...", {
-        description: "Hang tight! Summafy is reading through the document ✨"
+        description: "Hang tight! Summafy is reading through the document "
       });
 
       const uploadedFileUrl = uploadResponse[0].serverData.fileUrl;
@@ -85,7 +85,7 @@ export default function UploadForm() {
 
       if (data?.summary) {
         toast.info("Saving PDF📄...", {
-          description: "Hang tight! Summafy is saving your summary ✨"
+          description: "Hang tight! Summafy is saving your summary "
         });
 
         // Save to the database and wait for completion
@@ -97,7 +97,7 @@ export default function UploadForm() {
         });
 
         if (storedResult?.success && storedResult.data?.id) {
-          toast.success("✨ Summary generated!", {
+          toast.success("Summary generated! ✨", {
             description: 'Your PDF has been successfully summarized and saved',
           });
           formRef.current?.reset();
@@ -120,6 +120,18 @@ export default function UploadForm() {
   }; return (
     <div className={"flex flex-col gap-8 w-full max-w-2xl mx-auto"}>
       <UploadFormInput isLoading={isLoading} ref={formRef} onSubmit={handleSubmit} />
+      {isLoading && (
+          <>
+            <div className={"relative"}>
+              <div className={"absolute inset-0 flex items-center"} aria-hidden={"true"}>
+                <div className={"w-full border-t border-gray-200 dark:border-gray-800"}/>
+              </div>
+              <div className={"relative flex justify-center"}>
+                <span className={"bg-background px-3 text-muted-foreground text-sm"}> Processing </span>
+              </div>
+            </div>
+          </>
+      )}
     </div>
   )
 }
