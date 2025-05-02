@@ -4,6 +4,7 @@ import {FileText, OctagonAlert} from "lucide-react";
 import {SummaryHeader} from "@/components/Summaries/summary-header";
 import {SourceInfo} from "@/components/Summaries/source-info";
 import {SummaryViewer} from "@/components/Summaries/summary-viewer";
+import {MotionDiv} from "@/components/common/motion-wrapper";
 
 export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
     const params = await props.params;
@@ -24,17 +25,24 @@ export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
             
             <div className={"container mx-auto flex flex-col gap-4"}>
                 <div className={"px-1 sm:px-4 lg:px-8 sm:py-12 lg:py-24"}>
-                    <div className={"flex flex-col"}>
+                    <MotionDiv
+                        initial={{opacity:0,y:20}}
+                        animate={{opacity:1,y:0}}
+                        transition={{duration:0.5}}
+                        className={"flex flex-col"}>
                         <SummaryHeader title={title} createdAt={created_at} readingTime={reading_time}/>
-                    </div>
-                    { <SourceInfo
-                        title={title}
-                        fileName={file_name}
-                        summaryText={summary_text}
-                        createdAt={created_at}
-                        originalFileUrl={original_file_url}
-                    />}
-                    <div className={"relative mt-4 sm:mt-8 lg:mt-16"}>
+                        { <SourceInfo
+                            title={title}
+                            fileName={file_name}
+                            summaryText={summary_text}
+                            createdAt={created_at}
+                            originalFileUrl={original_file_url}
+                        />}
+                    </MotionDiv>
+                    <MotionDiv initial={{opacity:0,y:20}}
+                               animate={{opacity:1,y:0}}
+                               transition={{duration:0.5}}
+                               className={"relative mt-4 sm:mt-8 lg:mt-16"}>
                         <div className={"relative p-1 sm:p-2 lg:p-6 bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-xl border border-purple-500/30 transition-all duration-300 hover:shadow-2xl hover:bg-white/90 max-w-4xl mx-auto "}>
                             <div className={"absolute inset-0 bg-gradient-to-br from-rose-50/50 via-orange-50/30 to-transparent opacity-50 rounded-2xl sm:rounded-3xl "}/>
                                 <div className={"absolute top-2 sm:top-4 right-2 sm:right-4 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground bg-white/90 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-xs"}>
@@ -45,7 +53,7 @@ export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
                                 <SummaryViewer summary={summary.summary_text}/>
                             </div>
                         </div>
-                    </div>
+                    </MotionDiv>
                 </div>
             </div>
         </div>

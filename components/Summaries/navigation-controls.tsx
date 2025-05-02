@@ -33,7 +33,7 @@ export function NavigationControls({
 
 }){
     return(
-        <div className={"absolute bottom-0 left-0 right-0 p-4 bg-background/80 backdrop-blur-xs border-t border-purple-500/10"}>
+        <div className={"absolute bottom-0 left-0 right-0 p-4 bg-white backdrop-blur-xs border-t border-purple-500/10"}>
             <div className={"flex justify-between items-center"}>
                 <Button
                     variant={"ghost"}
@@ -49,7 +49,7 @@ export function NavigationControls({
                         <button
                         key={index}
                         onClick={() => onSectionSelect(index)}
-                        className={cn("w-2 h-2 rounded-full transition-all duration-300",currentSection === index ? 'bg-gradient-to-r from-purple-400 to-purple-600': 'bg-purple-400/20 hover:bg-purple-400/30')}
+                        className={cn("w-2 h-2 rounded-full transition-all duration-300",currentSection === index ? 'bg-gradient-to-r from-purple-400 to-purple-600': 'bg-purple-500/50 hover:bg-purple-400/30')}
                         />
                     ))}
                 </div>

@@ -1,5 +1,5 @@
 "use client"
-import { FileTerminal, X } from 'lucide-react';
+import {Boxes, FileTerminal, X} from 'lucide-react';
 import NavLink from "@/components/common/nav-link";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Button2 from '../ui/button2';
@@ -43,8 +43,8 @@ export default function Header({className}:{className?:string}) {
             <div className={"grid grid-cols-2 lg:grid-cols-3 border border-gray-300/50 rounded-full p-2 px-4 md:pr-2 items-center bg-neutral-900/70 backdrop-blur"}>
                 <div>
                     <div  className={"flex items-center gap-1 lg:gap-2 shrink-0"}>
-                        <FileTerminal
-                            className="w-5 h-5 lg:w-6 lg:h-6 text-gray-300 hover:text-[#8F87F1] hover:rotate-12 transition-all duration-200 ease-in-out"
+                        <Boxes
+                            className="w-5 h-5 lg:w-6 lg:h-6 text-gray-300 hover:text-[#8F87F1] hover:scale-110 transition-all duration-200 ease-in-out"
                         />
                         <a href="/" className={"font-bold mt-1 lg:text-xl text-gray-300 hover:text-[#8F87F1] transition duration-300 ease-in-out cursor-pointer"}>Summafy
                         </a>

@@ -3,6 +3,8 @@ import {AnimatePresence,motion} from "framer-motion";
 import Tag from "@/components/common/Tag";
 import {twMerge} from "tailwind-merge";
 import {useState} from "react";
+import {MotionDiv, MotionH2, MotionH3} from "@/components/common/motion-wrapper";
+import {containerVariants, itemVariants} from "@/utils/constants";
 
 const faqs = [
         {
@@ -26,15 +28,27 @@ const faqs = [
     export default function Faqs() {
         const [selectedIndex, setSelectedIndex] = useState(0);
 
-        return <section id={"Faq"} className={"py-24"}>
+        return <section id={"Faq"} className={"py-12"}>
             <div className={"container"}>
                 <div className={"flex justify-center"}>
-                    <h2 className={"font-bold text-xl uppercase mb-4 text-[#C68EFD]"}><Tag>Faqs</Tag></h2>
+                    <MotionH2
+                        initial={{opacity:0,y:20}}
+                        whileInView={{opacity:1,y:0}}
+                        transition={{duration:0.5}}
+                        className={"font-bold text-xl uppercase mb-4 text-[#C68EFD]"}><Tag>Faqs</Tag></MotionH2>
                 </div>
-                <h3 className={"text-gray-300 text-3xl font-medium mt-6 text-center max-w-xl mx-auto"}>Questions? We've got <span className={"text-purple-400"}>answers</span> </h3>
+                <MotionH3
+                    initial={{opacity:0,y:20}}
+                    whileInView={{opacity:1,y:0}}
+                    transition={{duration:0.5,delay:0.2}}
+                    className={"text-gray-300 text-3xl font-medium mt-6 text-center max-w-xl mx-auto"}>Questions? We've got <span className={"text-purple-400"}>answers</span> </MotionH3>
                 <div className={"mt-12 flex flex-col gap-6 max-w-xl mx-auto"}>
                     {faqs.map((faq,faqIndex) => (
-                        <div key={faq.question}
+                        <MotionDiv
+                            initial={{opacity:0,y:50}}
+                            whileInView={{opacity:1,y:0}}
+                            transition={{duration:0.5,delay: faqIndex * 0.2}}
+                            key={faq.question}
                              className={"bg-neutral-800 rounded-2xl border border-white/10 p-6 "}>
                             <div className={"flex justify-between items-center"} onClick={(e) =>{
                                 e.stopPropagation();
@@ -66,7 +80,7 @@ const faqs = [
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
+                        </MotionDiv>
                     ))}
                 </div>
             </div>

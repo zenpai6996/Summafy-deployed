@@ -15,7 +15,7 @@ export default function Home() {
         <div className={"flex flex-col"}>
             <HeroSection />
             {/*DemoSection*/}
-            {/* <DemoSection/> */}
+             <DemoSection/>
             {/*HowItWorksSection*/}
             <HowItWorks/>
             {/*FAQSection*/}

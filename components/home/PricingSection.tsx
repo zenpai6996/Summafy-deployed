@@ -4,6 +4,8 @@ import { ArrowRight, CheckIcon} from "lucide-react";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import Tag from "@/components/common/Tag";
+import {MotionDiv, MotionH2, MotionSection} from "@/components/common/motion-wrapper";
+import {containerVariants, itemVariants} from "@/utils/constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -28,6 +30,20 @@ type PriceType = {
     id:string;
     paymentLink:string;
     priceId:string;
+}
+
+const listVariants = {
+    hidden:{opacity:0,x:-20},
+    visible:{
+        opacity:1,
+        x:0,
+        transition:{
+            type:"string",
+            damping:20,
+            stiffness:100,
+            delay:0.2,
+        },
+    },
 }
 
 const plans =[
@@ -74,10 +90,12 @@ const plans =[
 const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => {
     return (
       
-        <div className={"relative w-full max-w-lg bg-white/5 backdrop-blur-xs hover:scale-105 hover:transition-all duration-300"}>
-            
+        <MotionDiv
+            variants={listVariants}
+            whileHover={{scale:1.02}}
+            className={"relative w-full max-w-lg bg-white/5 backdrop-blur-xs hover:scale-105 hover:transition-all duration-300"}>
            <div className={cn("relative flex flex-col h-full gap-4 lg:gap-8 z-10 p-8 border border-gray-300/20 rounded-2xl",id === 'pro' && "border-[#E9A5F1] gap-5 border-2",id === 'exclusive' && "hover:border-[#FFB200] ")}>
-            <div className={"flex justify-between items-center gap-4"}>
+            <MotionDiv variants={listVariants} className={"flex justify-between items-center gap-4"}>
                 <div>
                     {id === "exclusive" ? (
                         <p className="text-lg lg:text-xl font-bold capitalize bg-gradient-to-r from-[#FFE700] via-[#FF2E63] to-[#252A34] bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
@@ -87,8 +105,8 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
                         <p className={"text-lg text-gray-300 lg:text-xl font-bold capitalize"}>{name}</p>
                     )}                    <p className={"text-base-content/80 text-gray-400 mt-2 "}>{description}</p>
                 </div>
-            </div>
-            <div className={"flex gap-2 "}>
+            </MotionDiv>
+            <MotionDiv variants={listVariants} className={"flex gap-2 "}>
                 <p className={"text-5xl text-gray-300 tracking-tight font-extrabold"}>₹{price}</p>
                 <div className={"flex flex-col text-gray-400 justify-end mb-[8px]"}>
                     {
@@ -102,13 +120,13 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
                         )
                     }
                 </div>
-            </div>
-            <div className={"space-y-2.5 leading-relaxed text-gray-300 ray-300 text-base flex-1"}>
+            </MotionDiv>
+            <MotionDiv variants={listVariants} className={"space-y-2.5 leading-relaxed text-gray-300 ray-300 text-base flex-1"}>
                 {items.map((item,idx) => <li key={idx} className={"flex items-center gap-2"}>
                     <CheckIcon className="text-[#E9A5F1]" size={18}/>
                     <span>{item}</span></li> )}
-            </div>
-            <div className={"space-y-2 justify-center w-full"}>
+            </MotionDiv>
+            <MotionDiv variants={listVariants} className={"space-y-2 justify-center w-full"}>
                 <Link href={paymentLink}   className={cn(
                     "w-full rounded-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#8F87F1] hover:to-[#E9A5F1] text-white border-2 py-2 transition-all duration-800 ease-in-out\n" +
                     "    bg-[length:200%_200%] hover:bg-[position:100%_100%]", id === 'basic' && "bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#8F87F1] hover:to-[#E9A5F1] border-rose-100",
@@ -122,20 +140,29 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
                         <>Buy Now <ArrowRight size={18}/></>
                     )}
                 </Link>
-            </div>
+            </MotionDiv>
         </div>
-    </div>
+    </MotionDiv>
     )
 }
 
 export default function PricingSection(){
     return(
-        <section className={"relative overflow-hidden "} id={"pricing"}>
+        <MotionSection
+            initial={"hidden"}
+            whileInView={"visible"}
+            viewport={{once:true,margin:'-100px'}}
+            variants={containerVariants}
+            className={"relative overflow-hidden "} id={"pricing"}>
             <div className={"py-12 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 "}>
                 <div className={"flex items-center justify-center w-full pb-12"}>
-                    <h2 className={"uppercase font-bold text-xl mb-8 text-[#C68EFD]"}>
+                    <MotionH2
+                        initial={{opacity:0,y:20}}
+                        whileInView={{opacity:1,y:0}}
+                        transition={{duration:0.5}}
+                        className={"uppercase font-bold text-xl mb-8 text-[#C68EFD]"}>
                         <Tag>Pricing</Tag>
-                    </h2>
+                    </MotionH2>
                 </div>
                 <div className={"relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8"}>
                     {plans.map((plan) => (
@@ -143,6 +170,6 @@ export default function PricingSection(){
                     ))}
                 </div>
             </div>
-        </section>
+        </MotionSection>
     )
 }

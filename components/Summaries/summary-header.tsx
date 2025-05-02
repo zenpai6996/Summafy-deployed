@@ -37,7 +37,7 @@ export function SummaryHeader({title,createdAt,readingTime}:{title:string,create
            </div>
                 </div>
                
-                <h1 className="text-3xl  md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight bg-gradient-to-r from-[#F3C623] via-[#FFB22C] to-[#FF2DF1]  bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
+                <h1 className="text-3xl  md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight bg-gradient-to-r from-[#8F87F1] via-[#C68EFD] to-[#E9A5F1]  bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
                     {title}
                 </h1>
             </div>
