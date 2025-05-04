@@ -48,7 +48,7 @@ const listVariants = {
 
 const plans =[
     {
-        name:'Free!',
+        name:'Basic',
         price:0,
         description: 'Best for Students',
         items:[
@@ -62,7 +62,7 @@ const plans =[
     },
     {
         name:'Pro',
-        price:50,
+        price:100,
         description:'Best for Professionals',
         items:[
             '15 PDF summaries per month',
@@ -70,19 +70,6 @@ const plans =[
             'Markdown Export'
         ],
         id:'pro',
-        paymentLink:'',
-        priceId:'',
-    },
-    {
-        name:'Exclusive',
-        price:500,
-        description:'Lifetime pro Access',
-        items:[
-            'Unlimited PDF summaries',
-            'Priority Processing',
-            'Markdown Export'
-        ],
-        id:'exclusive',
         paymentLink:'',
         priceId:'',
     },
@@ -94,10 +81,10 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
             variants={listVariants}
             whileHover={{scale:1.02}}
             className={"relative w-full max-w-lg bg-white/5 backdrop-blur-xs hover:scale-105 hover:transition-all duration-300"}>
-           <div className={cn("relative flex flex-col h-full gap-4 lg:gap-8 z-10 p-8 border border-gray-300/20 rounded-2xl",id === 'pro' && "border-[#E9A5F1] gap-5 border-2",id === 'exclusive' && "hover:border-[#FFB200] ")}>
+           <div className={cn("relative flex flex-col h-full gap-4 lg:gap-8 z-10 p-8 border border-gray-300/20 rounded-2xl",id === 'pro' && "hover:border-[#FFB200] ")}>
             <MotionDiv variants={listVariants} className={"flex justify-between items-center gap-4"}>
                 <div>
-                    {id === "exclusive" ? (
+                    {id === "pro" ? (
                         <p className="text-lg lg:text-xl font-bold capitalize bg-gradient-to-r from-[#FFE700] via-[#FF2E63] to-[#252A34] bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
                             {name}
                         </p>
@@ -110,14 +97,10 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
                 <p className={"text-5xl text-gray-300 tracking-tight font-extrabold"}>₹{price}</p>
                 <div className={"flex flex-col text-gray-400 justify-end mb-[8px]"}>
                     {
-                        id === "exclusive" ?(
-                                <><p className={"text-xs uppercase font-semibold"}>Lifetime</p>
-                                    <p className={"text-xs"}>Access</p></>
-                            )
-                            :(
+
                             <><p className={"text-xs uppercase font-semibold"}>RS</p>
                             <p className={"text-xs"}>/month</p></>
-                        )
+
                     }
                 </div>
             </MotionDiv>
@@ -130,8 +113,7 @@ const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => 
                 <Link href={paymentLink}   className={cn(
                     "w-full rounded-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#8F87F1] hover:to-[#E9A5F1] text-white border-2 py-2 transition-all duration-800 ease-in-out\n" +
                     "    bg-[length:200%_200%] hover:bg-[position:100%_100%]", id === 'basic' && "bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#8F87F1] hover:to-[#E9A5F1] border-rose-100",
-                    id === 'pro' && "bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#8F87F1] hover:to-[#E9A5F1] border-purple-500",
-                    id === 'exclusive' && "bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#FFE700] hover:to-[#FF2E63] border-gray-300")
+                    id === 'pro' && "bg-gradient-to-r from-[#E9A5F1] to-[#8F87F1] hover:bg-gradient-to-r hover:from-[#FFE700] hover:to-[#FF2E63] border-gray-300")
                 }
                 >
                     {id === "basic" ? (

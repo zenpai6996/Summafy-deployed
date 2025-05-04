@@ -19,6 +19,7 @@ const fontSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Summafy",
   description: "Turn documents into structured knowledge with Summafy!",
+  robots: "index, follow",
 };
 
 export default function RootLayout({
