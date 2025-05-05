@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import {toast} from "sonner";
 
 declare global {
     interface Window {
@@ -33,55 +34,59 @@ export default function CheckoutForm({ planId, planName, price }: CheckoutFormPr
     }, []);
 
     const handleCheckout = async () => {
-        try {
-            setIsLoading(true);
-
-            // Create subscription
-            const response = await fetch('/api/razorpay', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ planId }),
-            });
-
-            const data = await response.json();
-
-            if (!data.success) {
-                throw new Error(data.message || 'Failed to create subscription');
-            }
-
-            // Initialize Razorpay checkout
-            const options = {
-                key: data.keyId,
-                subscription_id: data.subscriptionId,
-                name: "Summafy",
-                description: `${planName} Subscription`,
-                handler: function(response: any) {
-                    // Redirect to dashboard on successful payment
-                    router.push('/dashboard');
-                },
-                prefill: {
-                    name: "",
-                    email: "",
-                    contact: "",
-                },
-                notes: {
-                    planId: planId,
-                },
-                theme: {
-                    color: "#C68EFD",
-                },
-            };
-
-            const razorpay = new window.Razorpay(options);
-            razorpay.open();
-        } catch (error) {
-            console.error('Error during checkout:', error);
-            alert('Failed to initialize checkout. Please try again.');
-        } finally {
-            setIsLoading(false);
-        }
+        // try {
+        //     setIsLoading(true);
+        //
+        //     // Create subscription
+        //     const response = await fetch('/api/razorpay', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({ planId }),
+        //     });
+        //
+        //     const data = await response.json();
+        //
+        //     if (!data.success) {
+        //         throw new Error(data.message || 'Failed to create subscription');
+        //     }
+        //
+        //     // Initialize Razorpay checkout
+        //     const options = {
+        //         key: data.keyId,
+        //         subscription_id: data.subscriptionId,
+        //         name: "Summafy",
+        //         description: `${planName} Subscription`,
+        //         handler: function(response: any) {
+        //             // Redirect to dashboard on successful payment
+        //             router.push('/dashboard');
+        //         },
+        //         prefill: {
+        //             name: "",
+        //             email: "",
+        //             contact: "",
+        //         },
+        //         notes: {
+        //             planId: planId,
+        //         },
+        //         theme: {
+        //             color: "#C68EFD",
+        //         },
+        //     };
+        //
+        //     const razorpay = new window.Razorpay(options);
+        //     razorpay.open();
+        // } catch (error) {
+        //     console.error('Error during checkout:', error);
+        //     alert('Failed to initialize checkout. Please try again.');
+        // } finally {
+        //     setIsLoading(false);
+        // }
+        toast.info("Payment Withheld", {
+            description: "We are unable to process the payment right now"
+        });
+        router.push('/');
     };
 
     return (
