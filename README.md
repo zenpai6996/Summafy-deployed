@@ -103,9 +103,8 @@ Contributions to Summafy are welcome! Please feel free to submit a Pull Request.
 ---
 <div align="center">
 
-  <p>Crafted with ❤️ by  Souharda | © 2025</p>
+  <p>Crafted with ❤️ by Souharda</p>
   <p>
-    <a href="https://github.com/zenpai6996"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
     <a href="https://summafy.onrender.com"><img src="https://img.shields.io/badge/Website-0077B5?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website"></a>
   </p>
     <img src="https://capsule-render.vercel.app/api?type=waving&color=0:5433FF,50:20BDFF,100:A5FECB&height=120&section=footer&fontSize=42&fontColor=ffffff&animation=fadeIn" width="100%">
