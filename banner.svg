@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Definitions for reuse -->
+    <defs>
+        <!-- Gradient for background -->
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#4F46E5" />
+            <stop offset="100%" stop-color="#10B981" />
+        </linearGradient>
+
+        <!-- Wave pattern for animation -->
+        <pattern id="wavePattern" x="0" y="0" width="200" height="20" patternUnits="userSpaceOnUse">
+            <path d="M0,10 C20,5 40,15 60,10 C80,5 100,15 120,10 C140,5 160,15 180,10 C200,5 220,15 240,10"
+                  fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
+                <animate attributeName="d"
+                         values="M0,10 C20,5 40,15 60,10 C80,5 100,15 120,10 C140,5 160,15 180,10 C200,5 220,15 240,10;
+                         M0,10 C20,15 40,5 60,10 C80,15 100,5 120,10 C140,15 160,5 180,10 C200,15 220,5 240,10;
+                         M0,10 C20,5 40,15 60,10 C80,5 100,15 120,10 C140,5 160,15 180,10 C200,5 220,15 240,10"
+                         dur="10s"
+                         repeatCount="indefinite" />
+            </path>
+        </pattern>
+
+        <!-- Pulse effect -->
+        <radialGradient id="pulseGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stop-color="white" stop-opacity="0.3">
+                <animate attributeName="stop-opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="100%" stop-color="white" stop-opacity="0" />
+        </radialGradient>
+    </defs>
+
+    <!-- Background rectangle -->
+    <rect x="0" y="0" width="800" height="200" fill="url(#bgGradient)" />
+
+    <!-- Wave pattern overlay -->
+    <rect x="0" y="0" width="800" height="200" fill="url(#wavePattern)" opacity="0.4" />
+
+    <!-- Animated Circles -->
+    <circle cx="100" cy="50" r="20" fill="#F9FAFB" opacity="0.2">
+        <animate attributeName="cy" values="50;30;50" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="700" cy="150" r="30" fill="#F9FAFB" opacity="0.2">
+        <animate attributeName="cy" values="150;170;150" dur="6s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="100" r="50" fill="url(#pulseGradient)" />
+
+    <!-- Animated Document Icons -->
+    <g transform="translate(200, 100) scale(0.8)">
+        <!-- Document 1 -->
+        <g>
+            <rect x="-40" y="-50" width="30" height="40" rx="2" fill="#F3F4F6" stroke="#6366F1" stroke-width="1" />
+            <line x1="-30" y1="-40" x2="-20" y2="-40" stroke="#6366F1" stroke-width="1" />
+            <line x1="-30" y1="-35" x2="-15" y2="-35" stroke="#6366F1" stroke-width="1" />
+            <line x1="-30" y1="-30" x2="-25" y2="-30" stroke="#6366F1" stroke-width="1" />
+            <animate attributeName="transform" values="translate(0,0);translate(-5,5);translate(0,0)" dur="3s" repeatCount="indefinite" />
+        </g>
+
+        <!-- Document 2 -->
+<!--        <g>-->
+<!--            <rect x="10" y="-40" width="30" height="40" rx="2" fill="#F3F4F6" stroke="#6366F1" stroke-width="1" />-->
+<!--            <line x1="20" y1="-30" x2="30" y2="-30" stroke="#6366F1" stroke-width="1" />-->
+<!--            <line x1="20" y1="-25" x2="35" y2="-25" stroke="#6366F1" stroke-width="1" />-->
+<!--            <line x1="20" y1="-20" x2="25" y2="-20" stroke="#6366F1" stroke-width="1" />-->
+<!--            <animate attributeName="transform" values="translate(0,0);translate(5,-5);translate(0,0)" dur="4s" repeatCount="indefinite" />-->
+<!--        </g>-->
+    </g>
+
+    <!-- Summafy Text -->
+    <text x="400" y="70" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="white">SUMMAFY</text>
+    <text x="400" y="100" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="cyan">Transform lengthy Documents Into actionable Insights</text>
+
+
+    <!-- Animated Arrow -->
+    <g transform="translate(400, 150)">
+        <line x1="-20" y1="-10" x2="0" y2="10" stroke="white" stroke-width="2" />
+        <line x1="0" y1="10" x2="20" y2="-10" stroke="white" stroke-width="2" />
+        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,5; 0,0" dur="2s" repeatCount="indefinite" additive="sum" />
+    </g>
+</svg>
