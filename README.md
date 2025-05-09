@@ -47,10 +47,10 @@ npm install
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Dashboard" style="max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 8px;">
+  <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Landing" style="max-width: 50%; height: auto; border: 1px solid #eee; border-radius: 8px;">
   <p><em>Landing Page</em></p>
 
-  <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 8px;">
+  <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="max-width: 50%; height: auto; border: 1px solid #eee; border-radius: 8px;">
   <p><em>Dashboard for Summary Management</em></p>
 </div>
 
