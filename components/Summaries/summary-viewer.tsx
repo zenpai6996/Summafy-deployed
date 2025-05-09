@@ -9,6 +9,7 @@ import {explainPoint} from "@/actions/summary-actions";
 import {toast} from "sonner";
 import {Loader2} from "lucide-react";
 import {MotionDiv} from "@/components/common/motion-wrapper";
+import {Button} from "@/components/ui/button";
 
 export const parseSection = (section:string):{title:string;points:string[]} => {
     const [title, ...contentLines] = section.split('\n');
@@ -37,9 +38,12 @@ export const parseSection = (section:string):{title:string;points:string[]} => {
         ) as string[],
     }
 }
+interface SummaryViewerProps {
+    summary: string;
+    isProUser: boolean;
+}
 
-
-export function SummaryViewer({ summary }: { summary: string }) {
+export function SummaryViewer({ summary,isProUser }: SummaryViewerProps) {
     const [currentSection, setCurrentSection] = useState(0);
     const [selectedPoint, setSelectedPoint] = useState<string | null>(null);
     const [explanation, setExplanation] = useState<string | null>(null);
@@ -47,6 +51,18 @@ export function SummaryViewer({ summary }: { summary: string }) {
     const [isPending, startTransition] = useTransition();
 
     const handlePointClick = async (point: string) => {
+        if (!isProUser) {
+            setSelectedPoint(point);
+            setExplanation(null);
+            toast.error("Upgrade Required", {
+                description: "This feature is only available for Pro users. Upgrade your plan to access detailed explanations.",
+                action: {
+                    label: "Upgrade",
+                    onClick: () => window.open("/", "_blank")
+                }
+            });
+            return;
+        }
         setSelectedPoint(point);
         setExplanation(null);
         setIsLoading(true);
@@ -124,9 +140,24 @@ export function SummaryViewer({ summary }: { summary: string }) {
                     <div className="mb-2 p-2 bg-gray-100/10 rounded-lg">
                         <p className="text-sm text-muted-foreground/90">{selectedPoint}</p>
                     </div>
-                    {isPending ? (
+
+                    {!isProUser ? (
                         <div className="flex flex-col items-center justify-center p-4 gap-2">
-                            {/* Custom loader with animation */}
+                            <div className="text-center">
+                                <p className="text-sm text-muted-foreground mb-4">
+                                    This feature is only available for Pro users.
+                                </p>
+                                <Button
+                                    variant="default"
+                                    className="bg-purple-600 hover:bg-purple-700 text-white"
+                                    onClick={() => window.open("/", "_blank")}
+                                >
+                                    Upgrade to Pro
+                                </Button>
+                            </div>
+                        </div>
+                    ) : isPending ? (
+                        <div className="flex flex-col items-center justify-center p-4 gap-2">
                             <Loader2 className="h-8 w-8 animate-spin text-purple-500" />
                             <p className="text-sm text-muted-foreground">Generating explanation...</p>
                         </div>
