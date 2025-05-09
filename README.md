@@ -47,12 +47,12 @@ npm install
 ## 📸 Screenshots
 
 <div align="center">
-
-| Landing Page | Summary Dashboard | Summary Upload |
-|--------------|-------------------|-------------------|
-| <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Landing" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> | <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> |<img src="https://github.com/user-attachments/assets/8f68faa1-c56f-4ab0-b12f-4572c56007ac" alt="Summafy Upload View" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> 
-| *Clean landing interface* | *Interactive summary management* | *PDF upload interface*
-
+<img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Landing" style="width:700px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> 
+<p>Landing Page</p>
+<img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="width:700px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> 
+<p>DashBoard</p>
+<img src="https://github.com/user-attachments/assets/8f68faa1-c56f-4ab0-b12f-4572c56007ac" alt="Summafy Upload View" style="width:700px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> 
+<p>Upload Page</p>
 </div>
 
 
@@ -77,22 +77,12 @@ npm install
 
 <div align="left">
 
-### **Frontend**
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-
-### **Backend**
-[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-
-### **AI & Database**
-[![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://gemini.google.com/)
-[![Cohere](https://img.shields.io/badge/Cohere-FFFFFF?style=for-the-badge&logo=cohere&logoColor=7F3DFF)](https://cohere.com/)
-[![NeonDB](https://img.shields.io/badge/NeonDB-00E59B?style=for-the-badge&logo=neon&logoColor=white)](https://neon.tech/)
-
-### **Deployment**
-[![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+| Category       | Technologies                                                                                     |
+|----------------|--------------------------------------------------------------------------------------------------|
+| **Frontend**   | [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) |
+| **Backend**    | [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/) |
+| **AI & DB**    | [![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=flat-square&logo=google&logoColor=white)](https://gemini.google.com/) [![Cohere](https://img.shields.io/badge/Cohere-FFFFFF?style=flat-square&logo=cohere&logoColor=7F3DFF)](https://cohere.com/) [![NeonDB](https://img.shields.io/badge/NeonDB-00E59B?style=flat-square&logo=neon&logoColor=white)](https://neon.tech/) |
+| **Deployment** | [![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white)](https://render.com/) |
 
 </div>
 
