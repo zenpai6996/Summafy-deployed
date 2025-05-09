@@ -47,11 +47,12 @@ npm install
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Landing" style="max-width: 50%; height: auto; border: 1px solid #eee; border-radius: 8px;">
-  <p><em>Landing Page</em></p>
 
-  <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="max-width: 50%; height: auto; border: 1px solid #eee; border-radius: 8px;">
-  <p><em>Dashboard for Summary Management</em></p>
+| Landing Page | Summary Dashboard | Summary Upload |
+|--------------|-------------------|-------------------|
+| <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Landing" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> | <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> |<img src="https://github.com/user-attachments/assets/8f68faa1-c56f-4ab0-b12f-4572c56007ac" alt="Summafy Summary View" style="width:300px; max-width:100%; height:auto; border:1px solid #e1e4e8; border-radius:8px;"> 
+| *Clean landing interface* | *Interactive summary management* | *PDF upload interface*
+
 </div>
 
 
