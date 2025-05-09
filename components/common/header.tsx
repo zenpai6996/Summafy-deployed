@@ -6,6 +6,8 @@ import Button2 from '../ui/button2';
 import {useRef, useState, useEffect} from 'react';
 import Link from "next/link";
 import PlanBadge from "@/components/common/planbadge";
+import {MotionDiv} from "@/components/common/motion-wrapper";
+import {itemVariants} from "@/utils/constants";
 
 export default function Header({className}:{className?:string}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -108,7 +110,10 @@ export default function Header({className}:{className?:string}) {
                 </div>
 
                 {isMenuOpen && (
-                    <div ref={menuRef} className="md:hidden absolute top-full right-10 w-50% mt-2 py-4 backdrop-blur-md rounded-lg shadow-lg z-50 transition-all duration-300 ease-in-out">
+                    <MotionDiv  initial={{opacity:0,y:0}}
+                                whileInView={{opacity:1,y:10}}
+                                transition={{duration:0.5}}
+                                ref={menuRef} className="md:hidden absolute top-full right-10 w-50% mt-2 py-4 backdrop-blur-md rounded-lg shadow-lg z-50 transition-all duration-300 ease-in-out">
                         <div className="container max-w-5xl">
                             <div className="flex flex-col space-y-4 text-gray-300 font-medium px-4">
                                 <Link href="/#" as="/#">
@@ -130,7 +135,7 @@ export default function Header({className}:{className?:string}) {
                                 </SignedOut>
                             </div>
                         </div>
-                    </div>
+                    </MotionDiv>
                 )}
             </div>
         </section>

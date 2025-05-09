@@ -86,7 +86,7 @@ export default async function DashboardPage(){
                                 <p className={"text-sm"}>
                                     <span className="font-bold">⚠️ Upload Limit Reached:</span> You've used {uploadCount} out of {uploadLimit} uploads for your {currentPlan === 'pro' ? 'Pro' : 'Basic'} plan this month.{" "}
                                     {currentPlan === 'basic' && (
-                                        <Link href={"/#pricing"} className={"underline underline-offset-4 inline-flex items-center text-purple-300 hover:text-purple-200"}>
+                                        <Link href={"/"} className={"underline underline-offset-4 inline-flex items-center text-purple-300 hover:text-purple-200"}>
                                             Upgrade to Pro for {15 - uploadLimit} more uploads <ArrowRight className={"w-4 h-4 inline-block ml-1"}/>
                                         </Link>
                                     )}

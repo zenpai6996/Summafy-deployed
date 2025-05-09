@@ -58,7 +58,7 @@ export function SummaryViewer({ summary,isProUser }: SummaryViewerProps) {
                 description: "This feature is only available for Pro users. Upgrade your plan to access detailed explanations.",
                 action: {
                     label: "Upgrade",
-                    onClick: () => window.open("/pricing", "_blank")
+                    onClick: () => window.open("/", "_blank")
                 }
             });
             return;
@@ -150,7 +150,7 @@ export function SummaryViewer({ summary,isProUser }: SummaryViewerProps) {
                                 <Button
                                     variant="default"
                                     className="bg-purple-600 hover:bg-purple-700 text-white"
-                                    onClick={() => window.open("/pricing", "_blank")}
+                                    onClick={() => window.open("/", "_blank")}
                                 >
                                     Upgrade to Pro
                                 </Button>
