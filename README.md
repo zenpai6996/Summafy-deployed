@@ -27,7 +27,7 @@ Summafy is an AI-powered document summarization tool that helps you save hours o
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/summafy.git
+git clone https://github.com/zenpai6996/Summafy-deployed.git
 
 # Navigate to the project directory
 cd summafy
@@ -98,9 +98,10 @@ Contributions to Summafy are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/zenpai6996/Summafy-deployed/blob/main/LICENSE)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/zenpai6996/Summafy-deployed/blob/main/LICENSE)
----
+  ---
+
 <div align="center">
 
   <p>Crafted with ❤️ by Souharda</p>
