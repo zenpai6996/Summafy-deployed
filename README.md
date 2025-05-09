@@ -47,12 +47,14 @@ npm install
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Dashboard" width="80%">
-  <p><em>Dashboard with document analysis</em></p>
+  <img src="https://github.com/user-attachments/assets/75884647-4802-485f-a360-78107df91c0e" alt="Summafy Dashboard" style="max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 8px;">
+  <p><em>Landing Page</em></p>
 
-  <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" width="80%">
-  <p><em>Interactive summary exploration view</em></p>
+  <img src="https://github.com/user-attachments/assets/81928adb-4823-485d-aa1c-29b1444554c8" alt="Summafy Summary View" style="max-width: 80%; height: auto; border: 1px solid #eee; border-radius: 8px;">
+  <p><em>Dashboard for Summary Management</em></p>
 </div>
+
+
 
 ## 📘 Usage
 
@@ -72,11 +74,26 @@ npm install
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: React , TypeScript, TailwindCSS
-- **Backend**: Node.js, Express
-- **AI Engine**: Gemini, Cohere models
-- **Database**: NeonDB
-- **Deployment**: Render
+<div align="left">
+
+### **Frontend**
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+### **Backend**
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+
+### **AI & Database**
+[![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://gemini.google.com/)
+[![Cohere](https://img.shields.io/badge/Cohere-FFFFFF?style=for-the-badge&logo=cohere&logoColor=7F3DFF)](https://cohere.com/)
+[![NeonDB](https://img.shields.io/badge/NeonDB-00E59B?style=for-the-badge&logo=neon&logoColor=white)](https://neon.tech/)
+
+### **Deployment**
+[![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/)
+
+</div>
 
 ## 🤝 Contributing
 
@@ -90,15 +107,15 @@ Contributions to Summafy are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://github.com/zenpai6996/Summafy-deployed?tab=MIT-1-ov-file#readme)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/zenpai6996/Summafy-deployed/blob/main/LICENSE)
 ---
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:5433FF,50:20BDFF,100:A5FECB&height=120&section=footer&text=Summafy&fontSize=42&fontColor=ffffff&animation=fadeIn" width="100%">
-  <p>Crafted with ❤️ by the Souharda | © 2025</p>
+
+  <p>Crafted with ❤️ by  Souharda | © 2025</p>
   <p>
-    <a href="https://github.com/zenpai6996/Summafy-deployed"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+    <a href="https://github.com/zenpai6996"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
     <a href="https://summafy.onrender.com"><img src="https://img.shields.io/badge/Website-0077B5?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website"></a>
-    <a href="summafysqueezy@gmail"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
   </p>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:5433FF,50:20BDFF,100:A5FECB&height=120&section=footer&fontSize=42&fontColor=ffffff&animation=fadeIn" width="100%">
 </div>
