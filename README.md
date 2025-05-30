@@ -80,7 +80,6 @@ npm install
 | Category       | Technologies                                                                                     |
 |----------------|--------------------------------------------------------------------------------------------------|
 | **Frontend**   | [![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/) |
-| **Backend**    | [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)](https://expressjs.com/) |
 | **AI & DB**    | [![Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=flat-square&logo=google&logoColor=white)](https://gemini.google.com/) [![Cohere](https://img.shields.io/badge/Cohere-FFFFFF?style=flat-square&logo=cohere&logoColor=7F3DFF)](https://cohere.com/) [![NeonDB](https://img.shields.io/badge/NeonDB-00E59B?style=flat-square&logo=neon&logoColor=white)](https://neon.tech/) |
 | **Deployment** | [![Render](https://img.shields.io/badge/Render-46E3B7?style=flat-square&logo=render&logoColor=white)](https://render.com/) |
 
