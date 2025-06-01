@@ -6,6 +6,7 @@ import {Footer} from "@/components/common/Footer";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
 import Aurora from "@/components/common/Aurora";
+import {Analytics} from "@vercel/analytics/next";
 
 
 const fontSans = Source_Sans_3({
@@ -62,6 +63,7 @@ export default function RootLayout({
             <Header className="relative z-10"/>
             <main className={"flex-1 relative z-0"}>
                 {children}
+                <Analytics/>
             </main>
             <Footer/>
         </div>
