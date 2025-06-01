@@ -2,8 +2,8 @@ name: Keep Website Alive
 
 on:
   schedule:
-    # Runs every 10 minutes
-    - cron: '*/10 * * * *'
+    # Runs every 14 minutes
+    - cron: '*/14 * * * *'
   workflow_dispatch: # Allows manual triggering
 
 jobs:

@@ -1,14 +1,22 @@
 import { getSummaryById } from "@/lib/summaries";
 import {FileText, OctagonAlert} from "lucide-react";
-
+import {getSubscriptionDetails} from "@/lib/subscriptions";
 import {SummaryHeader} from "@/components/Summaries/summary-header";
 import {SourceInfo} from "@/components/Summaries/source-info";
 import {SummaryViewer} from "@/components/Summaries/summary-viewer";
 import {MotionDiv} from "@/components/common/motion-wrapper";
+import {currentUser} from "@clerk/nextjs/server";
+import {redirect} from "next/navigation";
 
 export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
     const params = await props.params;
     const id = params.id;
+    const user = await currentUser();
+    const userId = user?.id;
+    if (!userId) {
+        return redirect('/sign-in');
+    }
+    const subscriptionDetails = await getSubscriptionDetails(userId);
     const summary = await getSummaryById(id);
     if(!summary){
         return (
@@ -50,7 +58,7 @@ export default async function SummaryPage(props:{params:Promise<{id:string}>}) {
                                 {word_count?.toLocaleString()} words
                             </div>
                             <div className={"relative mt-8 sm:mt-6 flex justify-center"}>
-                                <SummaryViewer summary={summary.summary_text}/>
+                                <SummaryViewer summary={summary.summary_text} isProUser={subscriptionDetails.plan_id === 'pro'}/>
                             </div>
                         </div>
                     </MotionDiv>

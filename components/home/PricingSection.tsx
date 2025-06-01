@@ -70,8 +70,8 @@ const plans =[
             'Markdown Export'
         ],
         id:'pro',
-        paymentLink:'',
-        priceId:'',
+        paymentLink:'/checkout',
+        priceId:'plan_QRIOmYMuPRUyDi',
     },
 ];
 const PricingCard= ({name,price,description,items,id,paymentLink}:PriceType) => {
